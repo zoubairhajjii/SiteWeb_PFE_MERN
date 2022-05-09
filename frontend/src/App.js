@@ -1,12 +1,25 @@
-import './App.css';
+
+
+
+import React from 'react'
+import signUp from './pages/sinUp'
 
 function App() {
   return (
-    <div className="App">
+    <div>
+
       
-     
+
+
+       <signUp />
+
+
+
+
+
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
