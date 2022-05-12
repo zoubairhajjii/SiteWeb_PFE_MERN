@@ -14,6 +14,10 @@ import React, { useState } from "react";
     })
 
 }
+const onSubmit = (e)=>{
+    e.preventDefault();
+    dispatch(LoginAction(form, navigate))
+    }
 
 
  return (
@@ -26,11 +30,11 @@ import React, { useState } from "react";
 
             <div className="form-group">
                  <label for="email"><i className="zmdi zmdi-email"></i></label>
-                 <input type="email" name="email" id="email" placeholder="Your Email"/>
+                 <input type="email" name="email" handelChange={handelChange} placeholder="Your Email"/>
             </div>
             <div className="form-group">
                  <label for="pass"><i className="zmdi zmdi-lock"></i></label>
-                 <input type="password" name="password" id="pass" placeholder="Password"/>
+                 <input type="password" name="password" handelChange={handelChange} placeholder="Password"/>
             </div>
 
 
@@ -46,11 +50,6 @@ import React, { useState } from "react";
      </form>
 
     
-
-
-
-
-
 
 
      </div>

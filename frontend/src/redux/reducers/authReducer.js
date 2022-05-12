@@ -1,5 +1,5 @@
 import isEmpty from "../../util/isEmpty";
-import { LOGIN_USER } from "../types";
+import { LOGIN_USER,LOGAOUT_USER,REGISTER_USER } from "../types";
 
 const initialState = {
     isConnected: false,
@@ -14,6 +14,10 @@ export default function (state = initialState, action) {
                 user: action.payload,
                 // contenu eli bech yji mel reponse(action.paylode)
             };
+          
+
+
+      
 
         default:
             return state;

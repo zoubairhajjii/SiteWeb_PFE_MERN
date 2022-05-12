@@ -3,7 +3,7 @@ import { ERRORS } from '../types'
 impo
 
 
-export const Login = (form, navigate)=>dispatch=>{
+export const LoginAction = (form, navigate)=>dispatch=>{
     axios.post('/api/sinIN', form) 
     .then(res=>{
      
@@ -36,8 +36,8 @@ export const Registration = (form, navigate)=>dispatch=>{
         })
     })
 }
-export  const LogAute =()=>dispatch=>{
+export  const Logaut =()=>dispatch=>{
 
 
-    
+
 }
