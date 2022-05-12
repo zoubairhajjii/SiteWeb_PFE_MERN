@@ -1,5 +1,32 @@
 
 export const LOGIN_USER="LOGIN_USER"
-export const ERRORS="ERRORS"
 export const REGISTER_USER="REGISTER_USER"
+export const LOGAOUT_USER="LOGAOUT_USER"
+export const ERRORS="ERRORS"
+
+export const ADD_SERVICE="ADD_SERVICE"
+export const DELET_SERVICE="DELET_SERVICE"
+export const EDITE_SERVICE="EDITE_SERVICE"
+
+
+export const ADD_FEEDBACK="ADD_FEEDBACK"
+export const EDITE_FEEDBACK="EDITE_FEEDBACK"
+export const DELET_FEEDBACK="DELET_FEEDBACK"
+
+
+export const ADD_DEMANDE="ADD_DEMANDE"
+export const GET_DEMANDES="GET_DEMANDES"
+export const EDIT_DEMANDE="EDIT_DEMANDE"
+export const DELET_DEMANDE="DELET_DEMANDE"
+
+
+export const  DELETE_PROFILE="DELETE_PROFILE"
+export const  SET_PROFILE="SET_PROFILE"
+export const  SET_PROFILES="SET_PROFILES"
+
+
+
+
+
+
 
