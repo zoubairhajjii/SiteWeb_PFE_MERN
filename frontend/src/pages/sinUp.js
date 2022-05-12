@@ -1,6 +1,27 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import {} from '@mui/icons-material'
 const signUp = () => {
+
+
+
+    const [Form, setFrom]=useState({})
+    const handelChange= (e)=>{
+        setFrom({
+            ...form,
+            [e.target.name]:[e.target.value]
+
+        })
+
+
+
+    }
+
+
+
+
+
+
+
   return (
     <div><section class="signup">
     <div class="container">
