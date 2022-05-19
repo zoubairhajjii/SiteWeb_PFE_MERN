@@ -1,12 +1,10 @@
-import axios from 'axios'
-import { ERRORS } from '../types'
-impo
-
-
-export const LoginAction = (form, navigate)=>async (dispatch) =>{
+import React from "react";
+import { LOGIN_USER,LOGAOUT_USER,REGISTER_USER ,GET_CURRENT,ERRORS} from "../types";
+import axios from 'axios';
+export const LoginAction = (user, navigate)=>async (dispatch) =>{
     try {
 
-        const res =await axios.post("/api/sinIn",newUser)
+        const res =await axios.post("/auth/signIn",user)
         dispatch({type :LOGIN_USER ,payload:res.data})
         if (res.data.found.role ==="ADMIN"){
 
@@ -20,9 +18,10 @@ export const LoginAction = (form, navigate)=>async (dispatch) =>{
         }
         else {
 
-            navigate("/Profile");
+            navigate("/ProfileClient");
 
         }
+      
 
 
 
@@ -35,24 +34,27 @@ export const LoginAction = (form, navigate)=>async (dispatch) =>{
 
 }
 
-export const Registration = (form, navigate)=>dispatch=>{
-    axios.post('/api/sinUp', form) 
-    .then(res=>{
-      navigate('/sinIN')
-      dispatch({
-          type: ERRORS,
-          payload: {}
-      })
-    })
-    .catch(err=>{
-        dispatch({
-            type: ERRORS,
-            payload: err.response.data
-        })
-    })
-}
-export  const Logaut =()=>dispatch=>{
+export const Registration = (newUser, Navigate)=>async (dispatch)=>{
+    try {
+        const res= await axios.post("/auth/signUp",newUser)
+        dispatch({type :REGISTER_USER,payload:res.data})
+        Navigate("/profile")
+
+    } catch (error) {
+        dispatch({type :ERRORS ,payload:error.reponse.data})
+        
+    }
+
 
 
 
 }
+export const logout=(Navigate)=>{
+    Navigate("/")
+    return {
+        type :LOGAOUT_USER,
+    };
+
+
+};
+

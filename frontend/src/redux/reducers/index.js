@@ -2,11 +2,13 @@ import { combineReducers } from "redux";
 
 import authReducer from './authReducer'
 import erreReducer from './erreReducer'
-import  feedbackReducer from './feedbackReducer'
-
+import feedbackReducer from './feedbackReducer'
+import serviceReducer from './serviceReducer'
 export default combineReducers({
-    auth: authReducer,
+    authReducer: authReducer,
     errors: erreReducer,
-    feedback:feedbackReducer,
+    feedbackReducer:feedbackReducer,
+    serviceReducer:serviceReducer,
+    
     
 })

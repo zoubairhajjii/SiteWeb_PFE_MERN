@@ -18,15 +18,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
 export default function Register() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
 
+ 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -40,21 +33,22 @@ export default function Register() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+          <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <form >
+          <Box  noValidate  sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="nom"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="nom"
+                  label="nom"
                   autoFocus
                 />
               </Grid>
@@ -62,14 +56,15 @@ export default function Register() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
+                  id="prenom"
+                  label="prenom"
+                  name="prenom"
                   autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+               
                   required
                   fullWidth
                   id="email"
@@ -77,6 +72,11 @@ export default function Register() {
                   name="email"
                   autoComplete="email"
                 />
+
+
+
+
+
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -89,8 +89,80 @@ export default function Register() {
                   autoComplete="new-password"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="age"
+                  label="age"
+                  id="age"
+                  autoComplete="your age"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="TelephoneClient"
+                  label="TelephoneClient"
+                  id="TelephoneClient"
+                  autoComplete="your TelephoneClient"
+                />
+                
+              </Grid>
+              
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="TelephoneClient"
+                  label="TelephoneClient"
+                  id="TelephoneClient"
+                  autoComplete="your TelephoneClient"
+                />
+                
+              </Grid>
+             
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="TelephoneClient"
+                  label="TelephoneClient"
+                  id="TelephoneClient"
+                  autoComplete="your TelephoneClient"
+                />
+                
+              </Grid>
+             
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="TelephoneClient"
+                  label="TelephoneClient"
+                  id="TelephoneClient"
+                  autoComplete="your TelephoneClient"
+                />
+                
+              </Grid>
+             
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="TelephoneClient"
+                  label="TelephoneClient"
+                  id="TelephoneClient"
+                  autoComplete="your TelephoneClient"
+                />
+                
+              </Grid>
+             
+             
              
             </Grid>
+            
             <Button
               type="submit"
               fullWidth
@@ -101,12 +173,13 @@ export default function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   I have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
           </Box>
+          </form>
         </Box>
       </Container>
     </ThemeProvider>
