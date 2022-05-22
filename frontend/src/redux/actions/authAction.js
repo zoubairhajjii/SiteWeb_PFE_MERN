@@ -11,7 +11,7 @@ export const LoginAction = (user, navigate)=>async (dispatch) =>{
 
             navigate("/ProfileAdmin");
         }
-       else if (res.data.found.role ==="PROFISSIONEL"){
+       else if (res.data.found.role ==="Professionnel"){
 
 
             navigate("/ProfileProfissionell");
@@ -34,14 +34,14 @@ export const LoginAction = (user, navigate)=>async (dispatch) =>{
 
 }
 
-export const Registration = (newUser, Navigate)=>async (dispatch)=>{
+export const Registration = (user, Navigate)=>async (dispatch)=>{
     try {
-        const res= await axios.post("/auth/signUp",newUser)
+        const res= await axios.post("auth/signUp",user)
         dispatch({type :REGISTER_USER,payload:res.data})
-        Navigate("/profile")
+        Navigate("/login")
 
     } catch (error) {
-        dispatch({type :ERRORS ,payload:error.reponse.data})
+        dispatch({type :ERRORS ,payload:error.response.data})
         
     }
 

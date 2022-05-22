@@ -8,7 +8,6 @@ exports.SignUp = async (req, res) => {
     prenom,
     email,
     password,
-    TelephoneClient,
     Profession,
     Adresse,
     Age,
@@ -19,7 +18,7 @@ exports.SignUp = async (req, res) => {
     nomService,
   } = req.body;
   try {
-    const User = new UserSchema(req.body);
+    const user = new UserSchema(req.body);
     // verify email
     const foundUser = await UserSchema.findOne({ email });
     if (foundUser) {
@@ -28,13 +27,13 @@ exports.SignUp = async (req, res) => {
     // crypt password
     const salt = 10;
     const passwordhashed = bcrypt.hashSync(password, salt);
-    User.password = passwordhashed;
+    user.password = passwordhashed;
     // generate token
-    const payload = { id: User._id };
+    const payload = { id: user._id };
     const token = jwt.sign(payload, "Secret");
     // send new User
-    await User.save();
-    res.status(200).send({ msg: "register with success", User, token });
+    await user.save();
+    res.status(200).send({ msg: "register with success", user, token });
   } catch (error) {
     res.status(500).send({ msg: "could not register", error });
   }
