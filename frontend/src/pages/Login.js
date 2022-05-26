@@ -14,23 +14,35 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom";
-
+import EmailIcon from '@mui/icons-material/Email';
 import { LoginAction } from "../redux/actions/authAction"
+
 const theme = createTheme();
 
 export default function Login() {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const Navigate = useNavigate()
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
 
+ // const [data,setData]=useState({
+  //  email:'',
+  //  password:'',
 
+  //})
+//const onChange=(e)=>{
+   // setData({
+//...data,[e.target.name]:e.target.value }) }
+  
+//const onSubmit = (e)=>{
+      //  e.preventDefault();
+      //  dispatch(LoginAction(data, Navigate))
+     ///   }
+       
 
-
-
-
-
+ 
+  
+ 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -49,9 +61,10 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form  >
+          <form>
             <Box component="form" noValidate sx={{ mt: 1 }}>
-              <TextField
+            
+              <TextField 
                 margin="normal"
                 required
                 fullWidth
@@ -59,30 +72,34 @@ export default function Login() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                
                 autoFocus
-                onChange={(e) => {
-                  setEmail(e.target.value)
-                }}
-                value={email}
-              />
-              <TextField
+                 onChange={(e)=>{
+                   setEmail(e.target.value)
+                 }}
+                 value={email}
+                 
+             />
+             
+             
+            
+              
+              <TextField 
                 margin="normal"
                 required
                 fullWidth
+               
                 name="password"
                 label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
-
-                onChange={(e) => {
+                onChange={(e)=>{
                   setPassword(e.target.value)
                 }}
                 value={password}
-               
-
-
-              />
+             />
+             
 
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -90,20 +107,23 @@ export default function Login() {
               />
               <Button
                type='submit'
-
                 fullWidth
                 variant="contained"
                 sx={{ mt: 2, mb: 3 }}
-                onClick={(e) => {
-                  e.preventDefault(e)
-                  dispatch(LoginAction({email, password },navigate))
+                onClick ={(e)=>{
+                  e.preventDefault(e);
+                  dispatch(LoginAction({email,password}))
+
                 }}
+
+               
+               
               >
                 Sign In
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link to="" variant="body2">
+                  <Link to="/resetPassword" variant="body2">
                     Forgot password?
 
                   </Link>

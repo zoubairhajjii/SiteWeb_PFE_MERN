@@ -1,3 +1,4 @@
+import demande from '../../../../backend/models/demande';
 import   { ADD_DEMANDE, GET_DEMANDES,EDIT_DEMANDE,DELET_DEMANDE} from '../types'
 
 
@@ -5,14 +6,15 @@ import   { ADD_DEMANDE, GET_DEMANDES,EDIT_DEMANDE,DELET_DEMANDE} from '../types'
 const initialState = {
   
     user: {},
+    demande : []
 };
 export default function (state = initialState, action) {
-    switch (action.type) {
+    switch (type) {
         case ADD_DEMANDE:
             return {
                 ...state,
               
-                user: action.payload,
+                demande: [...demande,action.payload],
                 // contenu eli bech yji mel reponse(action.paylode)
             };
             case GET_DEMANDES :
@@ -28,7 +30,7 @@ export default function (state = initialState, action) {
 
             case DELET_DEMANDE :
                 return{
-
+                    demande : state.demande.slice(0,action.payload.demande.id)
                     
                 }
     

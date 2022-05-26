@@ -7,6 +7,8 @@ import Register from './pages/Register'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {   ToastContainer } from 'react-toastify';
+
 function App() {
   return (
     <div>
@@ -14,10 +16,22 @@ function App() {
       
       <BrowserRouter>
         <Navbar />
-        <Routes>
-        <Route path='/login' element= {<Login />} />
+        
+          
+          <Routes>
+        <Route path='/login' element= {<Login/>} />
         <Route path='/register' element= {<Register />} />
+        <Route path='/home' element= {<Home/>} />
+
+        
         </Routes>
+        
+       
+
+       
+        <ToastContainer />
+        
+       
 
 
       

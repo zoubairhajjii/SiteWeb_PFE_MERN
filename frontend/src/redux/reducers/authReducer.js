@@ -4,7 +4,7 @@ const initialState = {
     user:null,
     errors:null,
     auth:false,
-    err:null,
+    fail:null,
    
 
 
@@ -19,14 +19,14 @@ const authReducer =(state =initialState,{type,payload})=>{
 
         case  LOGIN_USER:  
             localStorage.setItem("token",payload.token)
-            return{...state,user:payload.found,auth:true,errors:null}
+            return{...state,user:payload.found,auth:true,errors:true}
         case GET_CURRENT:
             return {...state,user:payload,auth:true}
         case LOGAOUT_USER:
             localStorage.removeItem("token")
             return {...state,user:null,auth:false}
         case ERRORS:
-            return{...state,err:payload.errors}
+            return{...state,fail:payload.errors}
         default:
             return state;
 

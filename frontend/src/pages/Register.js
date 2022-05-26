@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from 'react-router-dom'
 import { Registration }  from "../redux/actions/authAction"
 import { FormControl, FormLabel, InputLabel, MenuItem, Radio, RadioGroup } from '@mui/material';
@@ -22,22 +22,28 @@ import Select from 'react-select'
 const theme = createTheme();
 
 export default function Register() {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [name,setName]=useState()
-  const [prenom,setPrenom]=useState()
-  const [Telephone,setTelephone]=useState()
-  const [Profession,setProfession]=useState()
-  const [Adresse,setAdresse]=useState()
-  const [Age,setAge]=useState()
-  const [position,setPosition]=useState()
-  const [tarif,setTarif]=useState()
-  const [role,setRole]=useState()
+  const  [data,setData]=useState({
+    email:'',
+    password:'',
+    name:'',
+    prenom:'',
+    Telephone:'',
+    Profession:'',
+    Adresse:'',
+    Age:'',
+    position:'',
+    tarif:'',
+    role:''
+  })
+  const onChange=(e)=>{
+    setData({
+      ...data,[e.target.name]:e.target.value }) }
 
 
-
-
-
+      const onSubmit = (e)=>{
+        e.preventDefault();
+        dispatch(Registration(data,Navigate))
+        }
   const dispatch = useDispatch()
   const Navigate = useNavigate()
 
@@ -60,7 +66,7 @@ export default function Register() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form>
+          <form onSubmit={onSubmit}>
           <Box  noValidate  sx={{ mt: 3 }}>
             <Grid container spacing={2}>
              
@@ -72,10 +78,7 @@ export default function Register() {
                   label="name"
                   id="name"
                   autoComplete="name"
-                  onChange={(e) => {
-                    setName(e.target.value)
-                  }}
-                  value={name}
+                  onChange={onChange}
                 
                 />
               </Grid>
@@ -88,10 +91,7 @@ export default function Register() {
                   label="prenom"
                   id="prenom"
                   autoComplete="prenom"
-                  onChange={(e) => {
-                    setPrenom(e.target.value)
-                  }}
-                  value={prenom}
+                  onChange={onChange}
 
                   />
                 </Grid>
@@ -103,10 +103,7 @@ export default function Register() {
                   label="email"
                   id="email"
                   autoComplete="your email"
-                  onChange={(e) => {
-                    setEmail(e.target.value)
-                  }}
-                  value={email}
+                  onChange={onChange}
                 />
               </Grid>
              
@@ -121,10 +118,7 @@ export default function Register() {
                   name="password"
                   type="password"
                   autoComplete="password"
-                  onChange={(e) => {
-                    setPassword(e.target.value)
-                  }}
-                  value={password}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -136,11 +130,7 @@ export default function Register() {
                   label="Telephone"
                   name="Telephone"
                   autoComplete="Telephone"
-                  onChange={(e) => {
-                    setTelephone(e.target.value)
-                  }}
-                  value={Telephone}
-                 
+                  onChange={onChange}
                 />
               
               </Grid>
@@ -153,10 +143,7 @@ export default function Register() {
                   label="Profession"
                   name="Profession"
                   autoComplete="Profession"
-                  onChange={(e) => {
-                    setProfession(e.target.value)
-                  }}
-                  value={Profession}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -169,10 +156,7 @@ export default function Register() {
                   name="Adresse"
                  
                   autoComplete="Adresse"
-                  onChange={(e) => {
-                    setAdresse(e.target.value)
-                  }}
-                  value={Adresse}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -185,10 +169,7 @@ export default function Register() {
                   name="Age"
                  
                   autoComplete="Age"
-                  onChange={(e) => {
-                    setAge(e.target.value)
-                  }}
-                  value={Age}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -201,10 +182,7 @@ export default function Register() {
                   name="position"
                  
                   autoComplete="position"
-                  onChange={(e) => {
-                    setPosition(e.target.value)
-                  }}
-                  value={position}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -217,10 +195,7 @@ export default function Register() {
                   name="tarif"
                  
                   autoComplete="tarif"
-                  onChange={(e) => {
-                    setTarif(e.target.value)
-                  }}
-                  value={tarif}
+                  onChange={onChange}
                 />
               </Grid>
              < Grid item xs={12} >
@@ -233,10 +208,7 @@ export default function Register() {
                   name="role"
                  
                   autoComplete="role"
-                  onChange={(e) => {
-                    setRole(e.target.value)
-                  }}
-                  value={role}
+                  onChange={onChange}
                 />
               </Grid>
              
@@ -248,13 +220,12 @@ export default function Register() {
             <Button
               type="submit"
               fullWidth
+             
+
+              
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={(e) => {
-                e.preventDefault(e)
-                dispatch(Registration({name,prenom,email, password,Telephone,Profession,Adresse,Age,position,tarif,role
-                 },Navigate))
-              }}
+              
             >
               Sign Up
             </Button>
