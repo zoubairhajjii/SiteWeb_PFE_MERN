@@ -1,34 +1,31 @@
-import {ADD_FEEDBACK,DELET_FEEDBACK,EDITE_FEEDBACK} from '../types'
-
-
-
+import {GET_FEEDBACK,DELET_FEEDBACK,ADD_FEEDBACK}from '../types'
 
 
 const initialState = {
-  
-    user: {},
+    feedback : [],
+    fedback:{}
 };
-export default function (state = initialState, action) {
+ const feedbackReducer=(state = initialState,action)=> {
     switch (action.type) {
         case ADD_FEEDBACK:
             return {
                 ...state,
-              
-                user: action.payload,
+                feedback: action.payload
                 // contenu eli bech yji mel reponse(action.paylode)
             };
+            case GET_FEEDBACK :
+                return{
+                    ...state,
+                    feedback: action.payload,
+                }
+            
             case DELET_FEEDBACK :
                 return{
-
-
+                    ...state,
+                    feedback : state.feedback.slice(0,action.payload.feedback.id) 
                 }
-            case EDITE_FEEDBACK :
-                return{
-    
-                        
-                    }
-
         default:
             return state;
     }
 }
+export default feedbackReducer

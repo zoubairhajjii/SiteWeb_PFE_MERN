@@ -1,4 +1,4 @@
-import { ADD_DEMANDE, DELET_DEMANDE, EDIT_DEMANDE, ERRORS, GET_DEMANDES } from "../types"
+import { ADD_SERVICE, DELET_SERVICE, EDITE_SERVICE, ERRORS, GET_SERVICE } from "../types"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,10 +8,10 @@ const header = {
     "Authorization" : `Bearer ${localStorage.getItem('token')}`
 }
 
-export const addDemande = (demande,id) =>async (dispatch)=>{
+export const addService = (Service) =>async (dispatch)=>{
     try {
-        const res= await axios.post(`/Demande/addDemande/${id}`,demande,{Headers:header})
-        dispatch({type :ADD_DEMANDE,payload:res.data})
+        const res= await axios.post(`/Service/addService/`,Service,{Headers:header})
+        dispatch({type :ADD_SERVICE,payload:res.data})
         if (res.status===200){
             toast.success(res.data.msg)}
         else{
@@ -24,10 +24,10 @@ export const addDemande = (demande,id) =>async (dispatch)=>{
         
     }
 }
-export const deletDemande = (id) =>async (dispatch)=>{
+export const deleteService = (id) =>async (dispatch)=>{
     try {
-        const res= await axios.delete(`/Demande/deleteDemande/${id}`,{Headers:header})
-        dispatch({type :DELET_DEMANDE,payload:res.data})
+        const res= await axios.delete(`/Service/deleteService/${id}`,{Headers:header})
+        dispatch({type :DELET_SERVICE,payload:res.data})
         if (res.status===200){
             toast.success(res.data.msg)}
         else{
@@ -40,10 +40,10 @@ export const deletDemande = (id) =>async (dispatch)=>{
         dispatch({type :ERRORS ,payload:error.response.data})
         
     }}
-    export const getDemande = () =>async (dispatch)=>{
+    export const getService = () =>async (dispatch)=>{
         try {
-            const res= await axios.post(`/Demande/Demandes/`,{Headers:header})
-            dispatch({type :GET_DEMANDES,payload:res.data})
+            const res= await axios.get(`/Service/Services/`,{Headers:header})
+            dispatch({type :GET_SERVICE,payload:res.data})
             if (res.status===200){
                 toast.success(res.data.msg)}
             else{
@@ -55,10 +55,10 @@ export const deletDemande = (id) =>async (dispatch)=>{
             dispatch({type :ERRORS ,payload:error.response.data})
             }
         }
-        export const editeDemande = (demande,id) =>async (dispatch)=>{
+        export const editService = (ServiceEdited,id) =>async (dispatch)=>{
             try {
-                const res= await axios.post(`/Demande/editDemande/${id}`,demande,{Headers:header})
-                dispatch({type :EDIT_DEMANDE,payload:res.data})
+                const res= await axios.put(`/Service/editService/${id}`,ServiceEdited,{Headers:header})
+                dispatch({type :EDITE_SERVICE,payload:res.data})
                 if (res.status===200){
                     toast.success(res.data.msg)}
                 else{

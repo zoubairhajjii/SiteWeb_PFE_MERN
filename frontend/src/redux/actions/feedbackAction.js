@@ -1,4 +1,4 @@
-import {ADD_FEEDBACK,DELET_FEEDBACK,EDITE_FEEDBACK}from "../types"
+import {ADD_FEEDBACK,DELET_FEEDBACK, ERRORS, GET_FEEDBACK}from "../types"
 
 const header = {
     "content-type" : "application/json",
@@ -17,32 +17,22 @@ export const addFeedBack = (Feedback,id) =>async (dispatch)=>{
 }
 export const deleteFeedBack = (id) =>async (dispatch)=>{
     try {
-        const res= await axios.post(`/FeedBack/deleteFeedBack/${id}`,{Headers:header})
+        const res= await axios.delete(`/FeedBack/deleteFeedBack/${id}`,{Headers:header})
         dispatch({type :DELET_FEEDBACK,payload:res.data})
 
     } catch (error) {
         dispatch({type :ERRORS ,payload:error.response.data})
         
     }}
-    export const getFeedBack = (demande) =>async (dispatch)=>{
+    export const getFeedBack = (id) =>async (dispatch)=>{
         try {
-            const res= await axios.post(`/FeedBack/FeedBacks/`,demande,{Headers:header})
-            dispatch({type :,payload:res.data})
+            const res= await axios.get(`/FeedBack/FeedBacks/${id}`,{Headers:header})
+            dispatch({type :GET_FEEDBACK,payload:res.data})
     
         } catch (error) {
             dispatch({type :ERRORS ,payload:error.response.data})
             }
         }
-        export const editeDemande = (demande,id) =>async (dispatch)=>{
-            try {
-                const res= await axios.post(`/FeedBack/Demandes/${id}`,demande,{Headers:header})
-                dispatch({type :EDIT_DEMANDE,payload:res.data})
         
-            } catch (error) {
-                dispatch({type :ERRORS ,payload:error.response.data})
-                }
-            }
-    
-    
     
     

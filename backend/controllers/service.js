@@ -19,7 +19,6 @@ exports.addService = async (req, res) => {
   }
 };
 exports.getService = async (req, res) => {
-  const { id } = req.params;
   try {
     ListOfService = await ServiceSchema.find();
     res.status(200).send({ msg: "list of Service", ListOfService });

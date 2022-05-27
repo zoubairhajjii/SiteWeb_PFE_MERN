@@ -6,8 +6,6 @@ const initialState = {
     auth:false,
     fail:null,
    
-
-
 }
 const authReducer =(state =initialState,{type,payload})=>{
     
@@ -29,14 +27,7 @@ const authReducer =(state =initialState,{type,payload})=>{
             return{...state,fail:payload.errors}
         default:
             return state;
-
-             
-       
     }
-
-
-
-
 }
 export default authReducer
 
