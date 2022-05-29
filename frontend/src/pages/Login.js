@@ -112,7 +112,7 @@ export default function Login() {
                 sx={{ mt: 2, mb: 3 }}
                 onClick ={(e)=>{
                   e.preventDefault(e);
-                  dispatch(LoginAction({email,password}))
+                  dispatch(LoginAction({email,password},Navigate))
 
                 }}
 
@@ -123,7 +123,7 @@ export default function Login() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link to="/resetPassword" variant="body2">
+                  <Link to="/ForgotPassword" variant="body2">
                     Forgot password?
 
                   </Link>

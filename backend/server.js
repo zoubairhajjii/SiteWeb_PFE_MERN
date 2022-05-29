@@ -7,6 +7,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 const DemandeRoute = require("./routes/demande");
 const FeedbackRoute = require("./routes/Feedbacks");
+const passwordResetRoutes = require("./routes/resetPassword");
 const app = express();
 app.use(express.json());
 ConnectDb();
@@ -14,6 +15,7 @@ app.use("/api/auth", AuthRoute);
 app.use("/api/Service", ServiceRoute);
 app.use("/api/Demande", DemandeRoute);
 app.use("/api/FeedBack", FeedbackRoute);
+app.use("/api/password-reset", passwordResetRoutes);
 app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -37,3 +39,11 @@ io.on("connection", (socket) => {
 port = 5000;
 
 server.listen(port, () => console.log(`server is running on port ${port}`));
+const passwordReset = require("./routes/resetPassword");
+const users = require("./routes/user");
+//.....
+
+app.use(express.json());
+
+app.use("/api/users", users);
+app.use("/api/password-reset", passwordReset);

@@ -2,29 +2,28 @@
 
 
 import React from 'react'
-import Login from './pages/Login'
+import Login from './components/forms/login/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import {   ToastContainer } from 'react-toastify';
-
+import ForgotPassword from './components/FrogetPassword'
+import Header from './components/header/Header'
 function App() {
   return (
     <div>
       
       
       <BrowserRouter>
-        <Navbar />
-        
+       
+        <Header />
           
           <Routes>
-        <Route path='/login' element= {<Login/>} />
-        <Route path='/register' element= {<Register />} />
-        <Route path='/home' element= {<Home/>} />
+               <Route path='/login' element= {<Login/>} />
 
         
-        </Routes>
+          </Routes>
         
        
 
