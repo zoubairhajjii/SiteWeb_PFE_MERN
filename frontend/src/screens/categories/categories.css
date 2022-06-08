@@ -1,0 +1,24 @@
+.cat{
+    padding:100px;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: space-between;
+     margin-top: 300px;
+     
+}
+.name{
+   
+    
+    text-align:center;
+}
+.fit-picture{
+    color: rgb(0, 0, 0);
+    padding:20px;
+   
+    width: 336.2px;    border-image:5px;
+    border-radius: 25px;
+    
+   
+  
+
+}

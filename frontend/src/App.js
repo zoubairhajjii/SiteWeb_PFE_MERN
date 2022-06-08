@@ -1,44 +1,58 @@
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { BrowserRouter, Routes, Route, Link,Navigate } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/footer/Footer";
+import Login from "./screens/Forms/login/LoginForm";
+import Signup from "./screens/Forms/signup/SignupFrom";
+import AboutUs from "./screens/about/AboutUs";
+import ForgotdPassword from "./screens/Forms//password/ForgotPassword";
+import ResetPassword from "./screens/Forms//password/ResetPassword";
+import Homee from "./screens/home/Homee";
+import ActivationEmail from "./screens/Forms/password/ActivationEmail";
+import ProfileAdmin from "./screens/service/pages/ProfileAdmin";
+import ProfileProfissionell from "./screens/service/pages/ProfileProfissionell";
+import NewServiceAd from "./screens/service/pages/admin/NewServiceAdd";
+import SidebarMenu from "./screens/service/pages/admin/dhashbord/SidebarMenu";
+import Card from "./screens/user/card/Card";
+import { ToastContainer } from "react-toastify";
+import { getUserData } from "./utils/LocalStorage";
+import Categories from "./screens/categories/Categories";
+import Product from "./screens/prodects/Product";
 
-
-
-import React from 'react'
-import Login from './components/forms/login/Login'
-import Register from './pages/Register'
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {   ToastContainer } from 'react-toastify';
-import ForgotPassword from './components/FrogetPassword'
-import Header from './components/header/Header'
 function App() {
+
+  
+
+
   return (
     <div>
-      
-      
       <BrowserRouter>
-       
         <Header />
+
+        <Routes>
+          <Route
+            path="/homee"
+            element={
+                              <Homee />
+            }
+          />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/product" element={<Product />} />
           
-          <Routes>
-               <Route path='/login' element= {<Login/>} />
+          <Route
+            path="/ProfileProfissionell"
+            element={<ProfileProfissionell />}
+          />
+        </Routes>
 
-        
-          </Routes>
-        
-       
-
-       
         <ToastContainer />
-        
-       
-
-
-      
       </BrowserRouter>
-
-      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

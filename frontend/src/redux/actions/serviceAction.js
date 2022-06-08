@@ -1,16 +1,19 @@
 import { ADD_SERVICE, DELET_SERVICE, EDITE_SERVICE, ERRORS, GET_SERVICE } from "../types"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
+import { getUserData } from "../../utils/LocalStorage";
 
 
 const header = {
-    "content-type" : "application/json",
-    "Authorization" : `Bearer ${localStorage.getItem('token')}`
-}
+    headers: {
+      'Authorization': `${localStorage.getItem('token')}` 
+    }}
 
 export const addService = (Service) =>async (dispatch)=>{
     try {
-        const res= await axios.post(`/Service/addService/`,Service,{Headers:header})
+        const user = await getUserData();
+        const res= await axios.post(`/Service/addService/${user._id}`,Service,header)
         dispatch({type :ADD_SERVICE,payload:res.data})
         if (res.status===200){
             toast.success(res.data.msg)}

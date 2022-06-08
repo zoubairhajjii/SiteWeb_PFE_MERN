@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
 const UserSchema = mongoose.Schema({
   name: { type: String, required: true },
   prenom: { type: String, required: true },
@@ -20,14 +19,3 @@ const UserSchema = mongoose.Schema({
   },
 });
 module.exports =mongoose.model("user", UserSchema);
-User = mongoose.model("user", UserSchema);
-const validate = (user) => {const schema = Joi.object({
-  name: Joi.string().required(),
-  email: Joi.string().email().required(),
-  password: Joi.string().required(),
-  
-  });
-  return schema.validate(user);
-};
-
-module.exports = { User, validate };

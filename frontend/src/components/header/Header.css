@@ -1,9 +1,9 @@
 .header {
   display: flex;
-  position: fixed;
+  position:fixed;
   width: 100vw;
   max-width: 1920px;
-  top: 0;
+  top: 10px;
   padding: 0 100px;
   height: 56px;
   margin: 0 auto;

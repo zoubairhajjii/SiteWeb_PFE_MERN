@@ -2,9 +2,10 @@ const UserSchema = require("../models/auth");
 const ServiceSchema = require("../models/service");
 
 exports.addService = async (req, res) => {
-  const { id } = req.params;
+  const { id_user } = req.params;
+ 
   try {
-    const Professionnel = await UserSchema.findById(req.user._id);
+    const Professionnel = await UserSchema.findById(id_user);
     if (Professionnel.role === "Professionnel") {
       const Service = new ServiceSchema(req.body);
       await Service.save();
@@ -19,8 +20,18 @@ exports.addService = async (req, res) => {
   }
 };
 exports.getService = async (req, res) => {
+  const { id } = req.params;
   try {
     ListOfService = await ServiceSchema.find();
+    res.status(200).send({ msg: "list of Service", ListOfService });
+  } catch (error) {
+    res.status(500).send({ msg: "could not get list of service", error });
+  }
+};
+exports.getServiceByCatName = async (req, res) => {
+  const { name } = req.params;
+  try {
+    ListOfService = await ServiceSchema.find({nomService:name});
     res.status(200).send({ msg: "list of Service", ListOfService });
   } catch (error) {
     res.status(500).send({ msg: "could not get list of service", error });
