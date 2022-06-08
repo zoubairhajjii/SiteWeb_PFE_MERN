@@ -10,6 +10,7 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../../components/loaders/Loading";
+import FileBase from "react-file-base64";
 const NewServiceAdd = () => {
   const dispatch = useDispatch();
 
@@ -18,21 +19,11 @@ const NewServiceAdd = () => {
 
   const [data, setData] = useState({
     category: "",
-    nom_de_fournisseur: "",
     DescriptionService: "",
-    imageService: "f",
-    price: 0,
+    image: "",
     localisation: "",
   });
   const categories = ["électricite", "plombier", "cheff", "climatisation"];
-  const {
-    category,
-    nom_de_fournisseur,
-    DescriptionService,
-    imageService,
-    price,
-    localisation,
-  } = data;
 
   const onChange = (e) => {
     setData({
@@ -91,15 +82,13 @@ const NewServiceAdd = () => {
                   ></textarea>
                 </div>
                 <div id="createProductFormFile" className="form__control ship">
-                  <input
+                  <FileBase
                     type="file"
-                    accept="image/*"
-                    multiple
-                    name="image"
-                    onChange={onChange}
-                    value={data.image}
+                    multiple={false}
+                    onDone={({ base64 }) =>
+                    setData({ ...data, image: base64 })
+                    }
                   />
-                  {}
                 </div>
                 <div className="form__control ship">
                   <AttachMoneyIcon />

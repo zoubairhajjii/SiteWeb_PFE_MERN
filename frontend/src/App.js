@@ -19,8 +19,14 @@ import { ToastContainer } from "react-toastify";
 import { getUserData } from "./utils/LocalStorage";
 import Categories from "./screens/categories/Categories";
 import Product from "./screens/prodects/Product";
+import ProductDetail from "./screens/prodects/productDetail/productDetail";
+
+
+
+
 
 function App() {
+  
 
   
 
@@ -42,11 +48,20 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/productDetail/:id" element={<ProductDetail />} />
+
           
           <Route
             path="/ProfileProfissionell"
             element={<ProfileProfissionell />}
           />
+
+
+
+
+
+
+          
         </Routes>
 
         <ToastContainer />

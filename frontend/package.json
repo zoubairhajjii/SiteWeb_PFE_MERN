@@ -26,6 +26,7 @@
     "react-avatar": "^5.0.1",
     "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.0.0",
+    "react-file-base64": "^1.0.3",
     "react-helmet": "^6.1.0",
     "react-js-pagination": "^3.0.3",
     "react-redux": "^8.0.1",

@@ -66,12 +66,7 @@ export default function Header() {
               )}
             </div>
           </Link>
-          <Link to="/cart">
-            <div className="header__option nav__option for__mobile">
-              <ShoppingCartIcon className="shoppingCartIcon" />
-              <span className="cart__count"></span>
-            </div>
-          </Link>
+          
         </div>
 
         {/* on desktop view */}

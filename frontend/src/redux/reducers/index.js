@@ -6,7 +6,6 @@ import feedbackReducer from './feedbackReducer'
 import serviceReducer from './serviceReducer'
 import passwordReducer from "./passwordReducer"
 import {productReducer} from "./productReducer"
-import {newReviewReducer} from "./newReviewReducer"
 
 export default combineReducers({
     passwordReducer: passwordReducer,
@@ -14,7 +13,6 @@ export default combineReducers({
     erreReducer: erreReducer,
     feedbackReducer:feedbackReducer,
     serviceReducer:serviceReducer,
-    newReviewReducer:newReviewReducer,
     productReducer:productReducer
     
     
