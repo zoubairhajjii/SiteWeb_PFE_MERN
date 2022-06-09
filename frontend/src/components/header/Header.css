@@ -8,10 +8,12 @@
   height: 56px;
   margin: 0 auto;
   justify-content: space-between;
-  background-color: white;
+  background-color:#EDEEF3;
   z-index: 10000;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(199, 61, 61, 0.1);
   float: left;
+  background-attachment: fixed;
+  border-radius: 14px;
 }
 
 .header__logo {
@@ -22,7 +24,7 @@
 }
 
 .header__logo svg {
-  color: #39ae27;
+  color: #a0d099;
   font-size: 1.7rem;
   margin-right: 20px;
 
@@ -59,7 +61,7 @@
 }
 
 .header__option:hover {
-  background: #27ae60;
+  background: #272d2a;
 }
 
 .header__option svg {

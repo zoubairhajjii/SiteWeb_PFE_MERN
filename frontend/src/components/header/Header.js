@@ -1,89 +1,192 @@
-import React, { useState, useEffect, Fragment } from "react";
-import "./Header.css";
+import * as React from "react";
 import { Link } from "react-router-dom";
-import { setTheme } from "../../utils/theme/Theme";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import { useDispatch, useSelector } from "react-redux";
-import SearchBar from "../search/SearchBar";
 
-export default function Header() {
-  const dispatch = useDispatch();
-  const [hamburger, setHamburger] = useState(true);
-  const showSidebar = () => setHamburger(!hamburger);
-  const { user } = useSelector((state) => state.authReducer);
+import "./style.css";
 
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const Header = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
-    <Fragment>
-      <div className="header d__flex">
-        <Link to="/homee">
-          <div className="header__logo d__flex">JobFinder</div>
-        </Link>
-        <div
-          className={
-            hamburger
-              ? "nav__list d__flex"
-              : " nav__list d__flex hamburger__open"
-          }
-        >
-          <Link to="/homee">
-            <div className="nav__option">Home</div>
+    <AppBar position="static" className="appbar">
+      <Container maxWidth="xl" className="containerappbar">
+        <Toolbar disableGutters className="toolbarappbar">
+          {/*this is for left view*/}
+          <Link to="/homee" style={{ textDecoration: "none" }}>
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "#40065b",
+                textDecoration: "none",
+              }}
+            >
+              JobFinder
+            </Typography>
           </Link>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/homee">
+                  <Typography textAlign="center">homee</Typography>
+                </Link>
+              </MenuItem>
 
-          <Link to="/about">
-            <div className="nav__option">AboutUs</div>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/about" style={{ textDecoration: "none" }}>
+                  <Typography textAlign="center">about</Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Service</Typography>
+              </MenuItem>
+            </Menu>
+          </Box>
+
+          {/*this is for right view*/}
+          <Link to="/homee" style={{ textDecoration: "none" }}>
+            <Typography
+              variant="h5"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              JobFinder
+            </Typography>
           </Link>
-
-          <Link to="">
-            <div className="nav__option">Logout</div>
-          </Link>
-
-          <>
-            <Link to="/signup">
-              <div className="nav__option">Signup</div>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Link to="/homee" style={{ textDecoration: "none" }}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                HOME
+              </Button>
             </Link>
-            <Link to="/login">
-              <div className="nav__option">Login</div>
+            <Link to="/about" style={{ textDecoration: "none" }}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                ABOUT US
+              </Button>
             </Link>
-          </>
+            <Link to="/service" style={{ textDecoration: "none" }}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                SERVICE
+              </Button>
+            </Link>
+          </Box>
 
-          {/* on mobile view */}
-          <Link to="/account">
-            <div className="header__option userAccount for__mobile">
-              {user && user.avatar && user.avatar.url ? (
-                <img
-                  className="headerProfile"
-                  src={user.avatar.url}
-                  alt="profile"
-                />
-              ) : (
-                <AccountCircleIcon />
-              )}
-            </div>
-          </Link>
-          
-        </div>
-
-        {/* on desktop view */}
-        <div className="header__Icons d__flex">
-          <div className="productSearch">
-            <SearchIcon />
-          </div>
-          <Link to="/account">
-            <div className="header__option userAccount not__for__mobile"></div>
-          </Link>
-         
-          <div className="header__option hamburger" onClick={showSidebar}>
-            <MenuIcon />
-          </div>
-        </div>
-        <SearchBar />
-      </div>
-    </Fragment>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              {/*this is for small avatar*/}
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
-}
+};
+export default Header;

@@ -4,7 +4,7 @@ import { Box, display, margin } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import CardContent from "@mui/material/CardContent";
+import Paper from "@mui/material/Paper";
 import "./prodect.css";
 import { useSelector } from "react-redux";
 function Product() {
@@ -22,10 +22,7 @@ function Product() {
   }, []);
 
  
-  const navigateToDetail = (id) => {
-    navigate(`/productDetail/${id}`)
-  }
-             
+           
 
 
 return (
@@ -45,7 +42,7 @@ return (
 
                               <div className="gitDetail"><span>{el.price}</span>11</div>
                           </div>
-                          <button onClick={() => navigateToDetail(el._id)} className="seeMore">See More</button>
+                          <button  className="seeMore">See More</button>
                       </div>
 
                   </div>

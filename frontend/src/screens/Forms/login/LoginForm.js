@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import MetaData from '../../../utils/title/MetaData';
 import { LoginAction } from '../../../redux/actions/authAction'
 import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
 import {useNavigate}   from "react-router-dom";
 
 export default function LoginForm() {
@@ -28,9 +29,9 @@ export default function LoginForm() {
 
 
     return (
-        <Fragment className="" >
+       
 
-            <Fragment className=''>
+            <Paper  className="PaperClass">
                 <MetaData title='login' />
                 <div className='allTypeFormPage'>
                 
@@ -94,9 +95,9 @@ export default function LoginForm() {
                  
                     </div>
                 </div>
-            </Fragment>
+           
 
             <ToastContainer />
-        </Fragment>
+        </Paper>
     )
 }

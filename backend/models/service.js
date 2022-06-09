@@ -6,8 +6,8 @@ const ServiceSchema = mongoose.Schema({
   image: { type: String,required: true   },
   localisation: String,
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
   },
 });
 

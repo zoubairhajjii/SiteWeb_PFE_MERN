@@ -34,7 +34,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
+        <Header className="headerfromapp" />
 
         <Routes>
           <Route

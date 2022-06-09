@@ -1,21 +1,24 @@
 body {
-	background-color: hsla(174, 30%, 80%, 0.801);
+	background-color:#e0fffb;
 }
 
 .container {
-	padding: 40px 20px 20px 20px;
-	width: 99%;
-	margin: auto;
+	/*padding: 20px 10px 10px 10px;*/
+	/*width: 70%;
+	margin: auto;*/
+	padding-top: 90px;
 	flex-wrap: wrap;
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	/*justify-content: space-between;*/
 	justify-content: center;
-	flex-wrap: wrap;
+	/*flex-wrap: wrap;*/
 }
 
 .card_item {
 	padding: 15px 30px;
 	width: 30%;
+	
 	text-align: center;
 }
 
@@ -26,27 +29,27 @@ body {
 }
 
 .container .card_inner {
-	background: rgba(120, 120, 120, 0.808);
-	border-radius: 10px;
-	padding: 35px 20px;
+	background: rgba(255, 255, 255, 0.808);
+	border-radius: 30px;
+	padding: 30px 20px;
 	min-width: 225px;
 	min-height: 315px;
 	max-height: 370px;
 	width: 100%;
-	box-shadow: 5px 5px 10px 2px rgba(235, 95, 95, 0.24);
+	box-shadow: 5px 5px 10px 2px rgba(83, 64, 64, 0.24);
 }
 
 .container .card_item img {
 	width: 180px;
-	height: 180px;
+	height: 120px;
 	margin-bottom: 10px;
-	border-radius: 50%;
+	border-radius: 10%;
 	align-items: center;
 	transition: transform .2s;
 }
 
 .container .card_item .userName {
-	color: #091d42;
+	color: #4b75c2;
 	font-weight: 600;
 	font-size: 20px;
 	white-space: nowrap;
@@ -55,19 +58,19 @@ body {
 }
 
 .container .card_item .userUrl {
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: 100;
 	margin: 5px 0 10px;
 	word-wrap: break-word;
-	color: #576bec;
+	color: #1dbea6;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
 .container .card_item .gitDetail {
-	font-size: 14px;
+	font-size: 34px;
 	line-height: 24px;
-	color: #3f71ac;
+	color: #1ba880;
 	display: flex;
 	flex-direction: column;
 }
@@ -93,15 +96,19 @@ body {
 	margin: 10px auto;
 	width: 100px;
 	height: 35px;
-	background: hsl(245, 44%, 65%);
-	color: #fff;
+	background: hsl(120, 2%, 87%);
+	color: rgb(10, 214, 132);
 	border: none;
 	border-radius: 10px;
-	font-weight: 600;
+	font-weight: 300;
 	cursor: pointer;
-	box-shadow: 0 10px 10px hsl(225, 100%, 94%);
+	/*box-shadow: 0 5px 5px hsl(278, 9%, 83%);*/
 }
-
+.seeMore:hover{
+	transform: scale(1.04);	
+	font-weight: 400;
+	box-shadow: 0 5px 5px hsl(278, 9%, 83%);
+}
 @media screen and (max-width: 1024px) {
 	.container .card_item {
 		width: 33%;

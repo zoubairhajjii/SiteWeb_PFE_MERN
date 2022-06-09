@@ -6,7 +6,7 @@ import chef from "../../images/chef.png"
 import clamatiseur from '../../images/clamatiseur.png'
 
 function Categories() {
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const [categories, setCategirues] = useState([
     { name: "électricite", image:  imag },
@@ -26,7 +26,7 @@ function Categories() {
         <div
           onClick={() => {
             console.log("wtf is this");
-            navigate("/product", { state: { name: element.name } });
+            Navigate("/product", { state: { name: element.name } });
           }}
         >
           <h1>{element.name}</h1>
