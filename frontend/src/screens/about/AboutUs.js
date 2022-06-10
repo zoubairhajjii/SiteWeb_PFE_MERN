@@ -12,7 +12,7 @@ const AboutUs = () => {
       <div className="AboutPage">
         <div className="about__cart">
           <div className="about__image">
-            <img alt="" src="" />
+            <img alt="" src="https://mobisoftinfotech.com/resources/wp-content/uploads/2018/08/Banner.png" />
           </div>
 
           <div className="about__content">
