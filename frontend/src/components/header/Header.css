@@ -8,7 +8,7 @@
   height: 56px;
   margin: 0 auto;
   justify-content: space-between;
-  background-color:#EDEEF3;
+  background-color:#cbced7;
   z-index: 10000;
   box-shadow: 0 0.5rem 1.5rem rgba(199, 61, 61, 0.1);
   float: left;
@@ -24,7 +24,7 @@
 }
 
 .header__logo svg {
-  color: #a0d099;
+  color: #cfe8cb;
   font-size: 1.7rem;
   margin-right: 20px;
 

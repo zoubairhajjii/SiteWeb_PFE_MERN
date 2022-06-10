@@ -1,10 +1,13 @@
 .allTypeFormPage {
-  position: relative;
+ 
   width: 100%;
   padding: 3rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
+border-radius: 25px;
+  margin-top: 25px;
+  border-radius: 25px;
 }
 
 .mainFormContainer {
@@ -12,13 +15,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(232, 237, 239);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   width: 400px;
   min-width: 150px;
   max-width: 90%;
+  border-radius: 25px;
+
 }
 
 .form__header {
@@ -28,25 +33,32 @@
   display: flex;
   justify-content: space-between;
   width: 90%;
+ 
+
 }
 
 .form__header p {
   text-align: center;
   max-width: 60%;
+  
+
 }
 
 .form__header p a {
-  color: blue;
+  color: rgb(131, 131, 223);
 }
 
 .formClass {
   padding: 1rem;
   width: 90%;
+
 }
 
 .form__control {
   margin: 1rem 0;
   position: relative;
+  border-radius: 25px; 
+ 
 }
 
 .form__control label {
@@ -54,6 +66,7 @@
   margin-bottom: 5px;
   font-size: 1rem;
   font-weight: 500;
+  border-radius: 25px; 
 }
 
 .form__control input,
@@ -66,6 +79,7 @@
   padding: 0.5rem;
   width: 100%;
   resize: vertical;
+  border-radius: 25px; 
 }
 
 .form__control > .password {
@@ -91,7 +105,7 @@
   margin-top: 1rem;
   display: inline-block;
   font-size: 1rem;
-  color: #fff;
+  color: rgb(228, 116, 116);
   background: #192a56;
   border-radius: 0.2rem;
   cursor: pointer;
@@ -99,7 +113,7 @@
 }
 
 .formSubmitBtn:hover {
-  background: #27ae60;
+  background: #61be88;
   letter-spacing: 0.1rem;
 }
 

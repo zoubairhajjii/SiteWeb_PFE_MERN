@@ -11,24 +11,17 @@ import { LoginAction } from '../../../redux/actions/authAction'
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import {useNavigate}   from "react-router-dom";
+import { Container } from '@mui/material';
 
 export default function LoginForm() {
            
     const Navigate = useNavigate()
-        
     const [passeye, setPasseye] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const dispatch = useDispatch();
-
-
-
-
-
-
-
     return (
+        <Container className='container'>
        
 
             <Paper  className="PaperClass">
@@ -76,12 +69,13 @@ export default function LoginForm() {
                                 }}
                                 value={password}
                             />
-                            <div className='form__control'>
+                            <div className='form__control 'style={{color :"red"}}>
                                 <Link to='/NewServiceAd'>forget password</Link>
                             </div>
                             <Button
                                 className='formSubmitBtn'
-                                style={{color :"red"}}
+                                variant="contained" color="success"
+                               
                                 type='submit'
                                 onClick={(e) => {
                                     e.preventDefault(e);
@@ -99,5 +93,7 @@ export default function LoginForm() {
 
             <ToastContainer />
         </Paper>
+        </Container>
     )
+
 }

@@ -5,13 +5,10 @@ const UserSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   Telephone: { type: String, required: true, unique: true },
-
-  Profession: String,
   Adresse: String,
   Age: String,
   position: String,
-  tarif: String,
-  photo_profil: String,
+  profil: String,
   role: {
     type: String,
     enum: ["Admin", "Professionnel", "Demandeur"],

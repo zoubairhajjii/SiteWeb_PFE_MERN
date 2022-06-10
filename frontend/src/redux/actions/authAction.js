@@ -11,9 +11,9 @@ export const LoginAction = (user, Navigate)=>async (dispatch) =>{
 
         const res =await axios.post("/auth/signIn",user)
         dispatch({type :LOGIN_USER ,payload:res.data})
-        if (res.data.found.role ==="ADMIN"){
+        if (res.data.found.role ==="Admin"){
             
-                Navigate("/profileAdmin")
+                Navigate("/profileadmin")
                 
                 notifySuccess(res.data.msg)
             

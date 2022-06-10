@@ -10,6 +10,9 @@ import { Registration } from "../../../redux/actions/authAction";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import HomeIcon from "@mui/icons-material/Home";
+import { Container } from "@mui/material";
+import Paper from '@mui/material/Paper';
+
 
 export default function SignupForm() {
   const Navigate = useNavigate();
@@ -23,8 +26,6 @@ export default function SignupForm() {
     email: "",
     password: "",
     Telephone: "",
-    Profession: "",
-    Age: "",
     role: "",
   });
   const onChange = (e) => {
@@ -40,8 +41,8 @@ export default function SignupForm() {
   };
 
   return (
-    <Fragment>
-      <Fragment>
+    <Container className="container">
+      <Paper  className="PaperClass">
         <MetaData title="signup" />
         <div className="allTypeFormPage">
           <div className="mainFormContainer">
@@ -116,16 +117,7 @@ export default function SignupForm() {
                   onChange={onChange}
                 />
               </div>
-              <div className="form__control">
-                <label htmlFor="Profession">Profession</label>
-                <input
-                  type="text"
-                  id="Profession"
-                  name="Profession"
-                  value={data.Profession}
-                  onChange={onChange}
-                />
-              </div>
+              
               <div className="form__control">
                 <label htmlFor="Adresse">Adresse</label>
                 <HomeIcon />
@@ -137,16 +129,7 @@ export default function SignupForm() {
                   onChange={onChange}
                 />
               </div>
-              <div className="form__control">
-                <label htmlFor="Age">Age</label>
-                <input
-                  type="text"
-                  id="Age"
-                  name="Age"
-                  value={data.Age}
-                  onChange={onChange}
-                />
-              </div>
+              
 
               <div className="form__control">
                 <label htmlFor="role">role</label>
@@ -162,9 +145,9 @@ export default function SignupForm() {
             </form>
           </div>
         </div>
-      </Fragment>
+      </Paper>
 
       <ToastContainer />
-    </Fragment>
+    </Container>
   );
 }

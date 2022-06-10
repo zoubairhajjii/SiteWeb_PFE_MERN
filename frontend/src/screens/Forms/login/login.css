@@ -1,5 +1,15 @@
+.container{
+    padding-top: 35px;
+}
 .mainFormContainer{
     margin-top: 50px; 
-}   
+} 
+.formSubmitBtn{
+    background-color: rgb(12, 166, 217);
+    text-align: center;
+    
+    
+
+}  
 
     

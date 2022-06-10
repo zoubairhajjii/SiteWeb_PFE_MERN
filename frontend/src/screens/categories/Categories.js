@@ -25,7 +25,7 @@ function Categories() {
       {categories.map((element) => (
         <div
           onClick={() => {
-            console.log("wtf is this");
+           
             Navigate("/product", { state: { name: element.name } });
           }}
         >

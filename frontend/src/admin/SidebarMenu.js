@@ -11,16 +11,14 @@ import ProductIcon from '@mui/icons-material/AddBox'
 import ShopIcon from '@mui/icons-material/Shop';
 import LockIcon from '@mui/icons-material/Lock'
 import ExistToAppIcon from '@mui/icons-material/ExitToApp'
-import { logout } from '../../../../../redux/actions/authAction'
-import { notifySuccess } from '../../../../../utils/alerts/Alerts'
+import { notifySuccess } from '../utils/alerts/Alerts'
 import { useDispatch } from 'react-redux'
 
 const SidebarMenu = () => {
     const [isActive, setActive] = useState("false");
     const dispatch = useDispatch()
     const handleLogout = () => {
-        dispatch(logout());
-        notifySuccess('logout successfully.')
+       
     }
 
     useEffect(() => {
@@ -57,9 +55,9 @@ const SidebarMenu = () => {
                         </Link>
                     </div>
                     <div className='dnavLink'>
-                        <Link to='/admin/products'>
+                        <Link to='/ajout'>
                             <span className="navOicon"><ProductIcon /></span>
-                            <span className="navOtitle">Products</span>
+                            <span className="navOtitle">ADD USER</span>
                         </Link>
                     </div>
                     <div className='dnavLink'>

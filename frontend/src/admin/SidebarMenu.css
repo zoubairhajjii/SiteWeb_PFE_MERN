@@ -9,17 +9,17 @@
   
   .adminPageSidebar.active,
   .dashboardNavigation.active {
-    width: 200px;
+    width: 220px;
   }
   
   .dashboardNavigation {
     position: relative;
-    padding-top: 60px;
-    width: 60px;
+    padding-top: 50px;
+    width: 50px;
     height: 100%;
-    overflow: hidden;
-    background-color: #287bff;
-    border-left: 5px solid #287bff;
+   
+    background-color: #a8afb9;
+    border-left: 0px solid #dce0e7;
   }
   
   .dnavLink {
@@ -43,12 +43,12 @@
     position: relative;
     color: white;
     border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+    border-bottom-left-radius: 35px;
   }
   
   .dnavLink:hover a,
   .hovered a {
-    color: #287bff;
+    color: #6597ec;
     transition: 0.1s;
   }
   
@@ -107,7 +107,7 @@
   
   .toggle {
     position: fixed;
-    left: 0;
+    left: 10px;
     width: 50px;
     height: 50px;
     display: flex;
@@ -116,18 +116,18 @@
     font-size: 2.5rem;
     cursor: pointer;
     z-index: 100;
-    background-color: #ff8928;
+    background-color: #72cfe6;
     border-bottom-right-radius: 10px;
   }
   
   .toggle > svg {
     font-size: 1.6rem;
-    color: white;
+    color: rgb(248, 225, 225);
   }
   
   .adminPageSidebar.active .toggle {
     width: 60px;
-    background-color: #287bff;
+    background-color: #8b9cb4;
   }
   
   @media screen and (max-width: 480px) {

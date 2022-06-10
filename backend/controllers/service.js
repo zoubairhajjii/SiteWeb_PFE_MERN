@@ -8,7 +8,7 @@ exports.addService = async (req, res) => {
     const Professionnel = await UserSchema.findById(id_user);
     if (Professionnel.role === "Professionnel") {
       const Service = new ServiceSchema(req.body);
-      Service.user_Id = id_user;
+      Service.userId = id_user;
       await Service.save();
       res.status(200).send({ msg: "Service added", Service });
     } else {
@@ -40,12 +40,15 @@ exports.getServiceByCatName = async (req, res) => {
 };
 
 exports.getProductById = async (req, res) => {
-  const { id } = req.params;
-  try {
-    ListOfService = await UserSchema.find({_id:id});
-    res.status(200).send({ msg: "detail user", ListOfService });
+ const {id } =req.params;
+  try { 
+    ListOfService = await ServiceSchema.findById(id).populate('userId');
+    
+ console.log(id)
+    res.status(200).json({ msg: "detail user", ListOfService });
+  
   } catch (error) {
-    res.status(500).send({ msg: "could not get detail", error });
+    res.status(500).json({ msg: "could not get detail", error });
   }
 }
 exports.deleteService = async (req, res) => {
