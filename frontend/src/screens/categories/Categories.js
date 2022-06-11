@@ -1,36 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import imag from "../../images/imag.png";
-import plonB from "../../images/imagePlonB.png";
-import chef from "../../images/chef.png"
-import clamatiseur from '../../images/clamatiseur.png'
-
+import elect from '../../images/elect.png';
+import plonB from "../../images/plomberie.png"
+import chauffage from "../../images/chauffage.png"
+import clamatiseur from '../../images/climatisation.png'
+import './categories.css';
 function Categories() {
   const Navigate = useNavigate();
 
   const [categories, setCategirues] = useState([
-    { name: "électricite", image:  imag },
+    { name: "électricite", image:  clamatiseur },
     { name: "plombier", image: plonB },
-    { name: "cheff", image: chef },
+    { name: "cheff", image: chauffage },
     { name: "climatisation", image: clamatiseur }
   ]);
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: "200px",
-      }}
-    >
+    <div className="aa">
       {categories.map((element) => (
         <div
+         className="bb"
           onClick={() => {
            
             Navigate("/product", { state: { name: element.name } });
           }}
         >
-          <h1>{element.name}</h1>
-          <img src={element.image} />
+          <img src={element.image} className="imgcc" />
+          <h6 className="h6dd">{element.name}</h6>
+          
         </div>
       ))}
     </div>

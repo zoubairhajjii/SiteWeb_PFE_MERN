@@ -4,11 +4,15 @@ import './SearchBar.css'
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
-    const Navigate = useNavigate()
+    const navigate = useNavigate()
     const [keyword, setKeyword] = useState("");
     const searchSubmitHandler = (e) => {
         e.preventDefault();
-        
+        if (keyword.trim()) {
+            navigate(`/${keyword}`);
+        } else {
+            navigate("/");
+        }
     };
 
     return (

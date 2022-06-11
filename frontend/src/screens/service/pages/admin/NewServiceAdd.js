@@ -21,6 +21,7 @@ const NewServiceAdd = () => {
     category: "",
     DescriptionService: "",
     image: "",
+    price:"",
     localisation: "",
   });
   const categories = ["électricite", "plombier", "cheff", "climatisation"];
@@ -39,9 +40,9 @@ const NewServiceAdd = () => {
 
   return (
     <Fragment>
-      {loading ? (
-        <Loading />
-      ) : (
+     
+        
+     
         <Fragment>
           <MetaData title="Add New Product" />
           <div className="allTypeFormPage">
@@ -124,7 +125,7 @@ const NewServiceAdd = () => {
             </div>
           </div>
         </Fragment>
-      )}
+     
       <ToastContainer />
     </Fragment>
   );

@@ -3,7 +3,7 @@ import axios from 'axios';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notifyError, notifySuccess } from "../../utils/alerts/Alerts";
-
+import { LogoutUser, storeUserData } from "../../utils/LocalStorage";
 
 
 export const LoginAction = (user, Navigate)=>async (dispatch) =>{
@@ -69,7 +69,11 @@ export const Registration = (user, Navigate)=>async (dispatch)=>{
   
 }
 export const logout=(Navigate)=>{
-    Navigate("/")
+    localStorage.removeItem("token")
+   
+
+    Navigate("/homee")
+   
     return {
         type :LOGAOUT_USER,
     };

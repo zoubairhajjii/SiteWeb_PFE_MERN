@@ -5,6 +5,7 @@ const ServiceSchema = mongoose.Schema({
   DescriptionService: { type: String, required: true },
   image: { type: String,required: true   },
   localisation: String,
+  price:{type:String,required},
   userId: {
     type: mongoose.Schema.Types.ObjectId,
      ref: "User",

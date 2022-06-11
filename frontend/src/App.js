@@ -8,7 +8,7 @@ import Signup from "./screens/Forms/signup/SignupFrom";
 import AboutUs from "./screens/about/AboutUs";
 import ForgotdPassword from "./screens/Forms//password/ForgotPassword";
 import ResetPassword from "./screens/Forms//password/ResetPassword";
-import Homee from "./screens/home/Homee";
+import Hom from "./screens/home/Hom";
 import ActivationEmail from "./screens/Forms/password/ActivationEmail";
 import ProfileAdmin from "./admin/ProfileAdmin";
 import ProfileProfissionell from "./screens/service/pages/ProfileProfissionell";
@@ -22,40 +22,43 @@ import ProductDetail from "./screens/prodects/productDetail/productDetail";
 import { Container } from "@mui/material";
 import Ajout from "./admin/Ajout";
 import NewServiceAdd from "./screens/service/pages/admin/NewServiceAdd";
+import User from "./admin/user/User";
+import NewUser from "./admin/user/newUser/NewUser";
 
 function App() {
   return (
-   
-      
-      <BrowserRouter>
-      <Header /> 
-       
+    <BrowserRouter>
+      <Header />
 
-        <Routes>
-          <Route path="/homee" element={<Homee />} />
+      <Routes>
+        <Route path="/hom" element={<Hom />} />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/productDetail" element={<ProductDetail />} />
-          <Route path="/newerviceAd" element={<NewServiceAdd />} />
-          <Route path="/about" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/newerviceAd" element={<NewServiceAdd />} />
+        <Route path="/about" element={<AboutUs />} />
 
-
-          <Route
-            path="/ProfileProfissionell"
-            element={<ProfileProfissionell />}
-          />
-          <Route path="/profileadmin" element={<ProfileAdmin />} />
-          <Route path="/ajout" element={<Ajout />} />
+        <Route path="/users" element={<User />} />
+        <Route path="/newuser" element={<NewUser />} />
+        <Route path="/forgetpasword" element={<ForgotdPassword />} />
+        <Route path="/reset" element={<ResetPassword/>} />
 
 
-        </Routes>
 
-        <ToastContainer />
-      </BrowserRouter>
- 
+        <Route
+          path="/ProfileProfissionell"
+          element={<ProfileProfissionell />}
+        />
+        <Route path="/profileadmin" element={<ProfileAdmin />} />
+        <Route path="/ajout" element={<Ajout />} />
+      </Routes>
+
+      <ToastContainer />
+      <Footer />
+    </BrowserRouter>
   );
 }
 

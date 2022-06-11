@@ -1,21 +1,6 @@
-.userContainer {
-  display: flex;
-  position: relative;
-  margin-top: 20px;
-  padding: 60px 100px 60px 100px;
-  color: blue;
-}
-.alldis{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-}
 .user {
   flex: 4;
   padding: 20px;
-  margin-top: 85px;
-  padding-top: 25px;
 }
 .userTitleContainer {
   display: flex;
@@ -28,11 +13,14 @@
   padding: 5px;
   background-color: teal;
   border-radius: 5px;
-  color: rgb(214, 55, 55);
+  color: #fff;
   cursor: pointer;
   font-size: 16px;
 }
-
+.userContainer {
+  display: flex;
+  margin-top: 20px;
+}
 .userShow {
   flex: 1;
   box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
@@ -46,7 +34,6 @@
 }
 .userShowTop {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 .userShowTop img {
@@ -68,16 +55,13 @@
   color: rgb(171, 171, 171);
 }
 .userShowInfo {
-  height: 2em;
   display: flex;
   align-items: center;
   margin: 20px 0;
-  color: rgb(186, 54, 54);
+  color: #444;
 }
 .userShowIcon {
   font-size: 16px !important;
-  width: 25px;
-  height: 25px;
 }
 .userShowInfo span {
   margin-left: 10px;

@@ -25,13 +25,9 @@ function Product() {
           <div className="card_item">
             <div className="card_inner">
               <img src={el.image} alt="" />
-              <div className="userName">{el.location}</div>
-              <div className="userUrl">{el.DescriptionService}</div>
-              <div className="detail-box">
-                <div className="gitDetail">
-                  <span>{el.price}</span>11
-                </div>
-              </div>
+              <div className="userName">{el.category}</div>
+           
+             
               <button
                 className="seeMore "
                 onClick={() => {

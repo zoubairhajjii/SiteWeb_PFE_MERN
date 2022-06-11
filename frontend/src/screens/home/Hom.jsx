@@ -1,39 +1,56 @@
 import React from "react";
 import disponibilite from "../../images/disponibilite.png";
+import garantie from "../../images/garantie.png";
+import qualite from "../../images/qualite.png";
+import prix from "../../images/prix.png";
+import "./hom.css";
 
 function Hom() {
   return (
-    <div data-v-45d3dc11 className="card">
-      <div data-v-45d3dc11 className="card-body">
-        <div data-v-45d3dc11 className="mt-3 mb-3 text-center">
-          <h1 data-v-45d3dc11 className="text-secondary">
-            <b data-v-45d3dc11> Qualité de Service</b>
-          </h1>{" "}
-          <p data-v-45d3dc11>La Qualité de service est notre priorité.</p>
-        </div>{" "}
-        <div data-v-45d3dc11 className="row">
-          <div data-v-45d3dc11 className="card-deck">
-            <div data-v-45d3dc11 className=" col-md-6 col-lg-3">
-              <div data-v-45d3dc11 className="card position-static">
-                <img
-                  data-v-45d3dc11
-                  src={disponibilite}
-                  alt="card img"
-                  className="card-img-top"
-                />
-                {/**/}
-                <div data-v-45d3dc11 className="card-body">
-                  <h4 data-v-45d3dc11 className="card-title">
-                    Transparence de prix
-                  </h4>
-                  {/**/}
-                  <p data-v-45d3dc11 className="card-text">
-                    Nous vous proposons une grille tarifaire selon votre besoin
-                    en réparation / installation.
-                  </p>
-                </div>
-              </div>
-            </div>
+    <div className="big-card">
+      <div className="top-card">
+        <h1 className="title-top">Qualité de Service</h1>
+        <p className="text-top">La Qualité de service est notre priorité.</p>
+      </div>
+      <div className="buttom-card">
+        <div className="card">
+          <img src={disponibilite} alt="card img" className="card-img" />
+          <div className="card-body">
+            <h5 className="card-title">Transparence de prix</h5>
+            <p className="card-text">
+              Nous vous proposons une grille tarifaire selon votre besoin en
+              réparation / installation.
+            </p>
+          </div>
+        </div>
+        <div className="card">
+          <img src={garantie} alt="card img" className="card-img" />
+          <div className="card-body">
+            <h5 className="card-title">Transparence de prix</h5>
+            <p className="card-text">
+              Nous vous proposons une grille tarifaire selon votre besoin en
+              réparation / installation.
+            </p>
+          </div>
+        </div>
+        <div className="card">
+          <img src={prix} alt="card img" className="card-img" />
+          <div className="card-body">
+            <h5 className="card-title">Transparence de prix</h5>
+            <p className="card-text">
+              Nous vous proposons une grille tarifaire selon votre besoin en
+              réparation / installation.
+            </p>
+          </div>
+        </div>
+        <div className="card">
+          <img src={qualite} alt="card img" className="card-img" />
+          <div className="card-body">
+            <h5 className="card-title">Transparence de prix</h5>
+            <p className="card-text">
+              Nous vous proposons une grille tarifaire selon votre besoin en
+              réparation / installation.
+            </p>
           </div>
         </div>
       </div>

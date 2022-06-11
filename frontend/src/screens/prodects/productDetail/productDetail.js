@@ -1,7 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  CalendarToday,
+  LocationSearching,
+  MailOutline,
+  PermIdentity,
+  PhoneAndroid,
+} from "@mui/icons-material";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import HomeIcon from "@mui/icons-material/Home";
+import PinDropIcon from "@mui/icons-material/PinDrop";
 
+import React from "react";
+import "./productDetail.css";
+import { Link } from "react-router-dom";
 const ProductDetail = () => {
   const { id } = useParams();
   const location = useLocation();
@@ -14,9 +28,6 @@ const ProductDetail = () => {
           location.state.id
       )
       .then((res) => setProd(res.data.ListOfService));
-    console.log("it's id " + location.state.id);
-    console.log(location.state);
-    console.log(id);
   }, []);
 
   if (prod == null) {
@@ -24,18 +35,49 @@ const ProductDetail = () => {
   }
   return (
     <>
-      <div className="Container emp profile">
-        <form method="">
-          <div className="row">
-            <div className="col-md-4">
-            <img src={prod.image} alt="" />
+      <div className="all">
+        <div className="userContainer">
+          <div className="userShow">
+            <div className="userShowTop">
+              <img src={prod.image} alt="" />
+            </div>
+            <div className="alldis">
+              <div className="userShowBottom">
+                <h3>Account Details</h3>
+                <h4>{prod.category}</h4> 
+                <div className="userShowInfo">
+                  
+                  <PermIdentity className="userShowIcon" />
+                  <span>{prod.userId.name}</span>
+                </div>
+                <div>
+                <PermIdentity className="userShowIcon" />
+                  {prod.userId.prenom}
+                </div>
+
+                <div className="userShowInfo">
+                  <PhoneAndroid className="userShowIcon" />
+                  <h5>{prod.userId.Telephone}</h5>
+                </div>
+                <div className="userShowInfo">
+                 <MailOutline className="userShowIcon" />
+                  <span>{prod.userId.email}</span>
+                </div>
+                <div className="userShowInfo">
+                  <HomeIcon className="userShowIcon" />
+                  <span>{prod.userId.Adresse} </span>
+                </div>
+                <div className="userShowInfo">
+                  <PinDropIcon className="userShowIcon" />
+                  <span>{prod.location} </span>
+                </div>
+              </div>
+              <div className="usershowleft">
+                <button>Demande Service</button>
+              </div>
+            </div>
           </div>
-          <div className="col-md-6">
-            <img src={prod.image} alt="" />
-            <div className="profile-head"></div>
-          </div>
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );

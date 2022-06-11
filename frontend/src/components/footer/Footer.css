@@ -1,10 +1,12 @@
 .footer {
   position: relative;
-  background-color: #192a56;
+  background-color: #c5f9f3;
   padding: 1.5rem 3rem;
   color: white;
   left: 0;
-  right: 0;
+  margin-top: 400px;
+  border-radius: 40px;
+  right: 2px;
   width: 100vw;
   max-width: 1920px;
 }
@@ -23,7 +25,7 @@
 }
 
 .footer .links .col h4 {
-  color: white;
+  color: rgb(186, 72, 72);
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
@@ -42,7 +44,7 @@
 
 .footer .social__Icons span {
   margin: 0 1rem;
-  color: white;
+  color: rgb(243, 126, 126);
 }
 
 .footer .social__Icons span svg {
@@ -51,7 +53,7 @@
 
 .footer .credit {
   text-align: center;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.5);
+  border-top: 0.1rem solid rgba(150, 118, 118, 0.5);
   font-size: 1rem;
   padding: 0.5rem;
   padding-top: 1.5rem;
@@ -63,7 +65,7 @@
 }
 
 .footer .credit p span {
-  color: #27ae60;
+  color: #7d9788;
 }
 
 @media screen and (max-width: 767px) {

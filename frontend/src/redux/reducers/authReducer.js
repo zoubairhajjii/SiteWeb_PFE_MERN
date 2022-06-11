@@ -1,4 +1,4 @@
-import { storeUserData } from "../../utils/LocalStorage";
+import { LogoutUser, storeUserData } from "../../utils/LocalStorage";
 import { LOGIN_USER,LOGAOUT_USER,REGISTER_USER ,GET_CURRENT,ERRORS, LOGIN_FAIL} from "../types";
 
 const initialState = {
@@ -25,7 +25,8 @@ const authReducer =(state =initialState,{type,payload})=>{
         case GET_CURRENT:
             return {...state,user:payload,auth:true}
         case LOGAOUT_USER:
-            localStorage.removeItem("token")
+                localStorage.removeItem("token",payload.token)
+                 LogoutUser(payload.found)
             return {...state,user:null,auth:false}
             
         case ERRORS:
