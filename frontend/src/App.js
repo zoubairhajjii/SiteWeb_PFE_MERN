@@ -24,11 +24,13 @@ import Ajout from "./admin/Ajout";
 import NewServiceAdd from "./screens/service/pages/admin/NewServiceAdd";
 import User from "./admin/user/User";
 import NewUser from "./admin/user/newUser/NewUser";
+import Sidebar from "./admin/sidebar/Sidebar";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <div className='appContainer'>
 
       <Routes>
         <Route path="/hom" element={<Hom />} />
@@ -48,6 +50,7 @@ function App() {
 
 
 
+
         <Route
           path="/ProfileProfissionell"
           element={<ProfileProfissionell />}
@@ -56,7 +59,10 @@ function App() {
         <Route path="/ajout" element={<Ajout />} />
       </Routes>
 
-      <ToastContainer />
+     
+     
+      </div>
+      <ToastContainer/>
       <Footer />
     </BrowserRouter>
   );

@@ -5,15 +5,15 @@ const {
   deleteService,
   editService,
   getServiceByCatName,
-  getProductById
+  getProductById,
 } = require("../controllers/service");
 const { isAuth } = require("../middlewares/isAuth");
 
-const ServiceRoute = express.Router(); 
+const ServiceRoute = express.Router();
 
-ServiceRoute.post("/addService/:id_user",isAuth, addService);
+ServiceRoute.post("/addService/:id_user", isAuth, addService);
 ServiceRoute.get("/getByServiceName/:name", getServiceByCatName);
-ServiceRoute.get("/getProductDetail/:id",getProductById);
+ServiceRoute.get("/getProductDetail/:id", getProductById);
 ServiceRoute.get("/services", getService);
 ServiceRoute.delete("/deleteService/:id", isAuth, deleteService);
 ServiceRoute.put("/editService/:id", isAuth, editService);

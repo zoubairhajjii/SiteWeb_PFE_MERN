@@ -1,13 +1,22 @@
-import React from 'react'
-import SidebarMenu from './SidebarMenu'
+import React from "react";
+import Sidebar from "../admin/sidebar/Sidebar";
 
 const ProfileAdmin = () => {
   return (
-    <div>
-        <SidebarMenu />
+    <div className="containerappp">
+      <Sidebar />
+      <div className="">
         
-    </div>
-  )
-}
+    
+    
+     
+      
+      
+      </div>
 
-export default ProfileAdmin
+    </div>
+  );
+};
+
+
+export default ProfileAdmin;

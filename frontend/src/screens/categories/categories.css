@@ -1,5 +1,5 @@
 .aa {
-  background-color: rgba(145, 255, 240, 0.694);
+  background-color: rgba(222, 234, 241, 0.694);
   padding: 40px;
   width: 95VW;
   display: flex;
@@ -16,7 +16,7 @@
   margin-right: 30px;
 }
 .bb:hover {
-  background-color: rgb(227, 235, 241);
+  background-color: rgb(210, 232, 249);
 }
 .bb {
   background-color: #ffffff;

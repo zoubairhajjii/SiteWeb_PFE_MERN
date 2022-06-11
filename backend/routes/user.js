@@ -1,19 +1,15 @@
-const { User, validate } = require("../models/user");
 const express = require("express");
-const router = express.Router();
+const {
+  GetUser,
+  deleteUser,
+  editUser,
+  addUser,
+} = require("../controllers/user");
+const { isAuth } = require("../middlewares/isAuth");
 
-router.post("/", async (req, res) => {
-    try {
-        const { error } = validate(req.body);
-        if (error) return res.status(400).send(error.details[0].message);
-
-        const user = await new User(req.body).save();
-
-        res.send(user);
-    } catch (error) {
-        res.send("An error occured");
-        console.log(error);
-    }
-});
-
-module.exports = router;
+const UserRoute = express.Router();
+UserRoute.post("/addUser", addUser);
+UserRoute.get("/users", isAuth, GetUser);
+UserRoute.delete("/deleteuser/:id", isAuth, deleteUser);
+UserRoute.put("/edituser/:id", isAuth, editUser);
+module.exports = UserRoute;

@@ -1,4 +1,4 @@
-import "./newHotel.scss";
+
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 

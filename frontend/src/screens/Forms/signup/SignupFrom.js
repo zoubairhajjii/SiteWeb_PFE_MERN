@@ -64,10 +64,12 @@ export default function SignupForm() {
                   type="text"
                   id="name"
                   name="name"
-                  value={data.name}
+                
                   onChange={onChange}
                   maxLength="40"
+                  value={data.name}
                 />
+                  
               </div>
               <div className="form__control">
                 <label htmlFor="prenom">prenom</label>
@@ -113,8 +115,9 @@ export default function SignupForm() {
                   type="text"
                   id="Telephone"
                   name="Telephone"
-                  value={data.Telephone}
                   onChange={onChange}
+                  value={data.Telephone}
+                 
                 />
               </div>
               
