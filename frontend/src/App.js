@@ -25,15 +25,17 @@ import NewServiceAdd from "./screens/service/pages/admin/NewServiceAdd";
 import User from "./admin/user/User";
 import NewUser from "./admin/user/newUser/NewUser";
 import Sidebar from "./admin/sidebar/Sidebar";
-
+import Homee from "./screens/home/Homee";
+import EditeSerivce from "./admin/service/EditeSerivce"
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      
       <div className='appContainer'>
 
       <Routes>
-        <Route path="/hom" element={<Hom />} />
+        <Route path="/homee" element={<Homee />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -47,6 +49,7 @@ function App() {
         <Route path="/newuser" element={<NewUser />} />
         <Route path="/forgetpasword" element={<ForgotdPassword />} />
         <Route path="/reset" element={<ResetPassword/>} />
+        
 
 
 
@@ -56,7 +59,9 @@ function App() {
           element={<ProfileProfissionell />}
         />
         <Route path="/profileadmin" element={<ProfileAdmin />} />
-        <Route path="/ajout" element={<Ajout />} />
+        <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
+
+        <Route path="/newUser" element={<NewUser />} />
       </Routes>
 
      

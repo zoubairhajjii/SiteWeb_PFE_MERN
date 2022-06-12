@@ -8,14 +8,9 @@ exports.SignUp = async (req, res) => {
     prenom,
     email,
     password,
-    Profession,
+    Telephone,
     Adresse,
-    Age,
-    position,
-    tarif,
-    photo_profil,
     role,
-    nomService,
   } = req.body;
   try {
     const user = new UserSchema(req.body);

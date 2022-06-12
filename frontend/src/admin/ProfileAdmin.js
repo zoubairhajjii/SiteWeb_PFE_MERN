@@ -3,18 +3,22 @@ import Sidebar from "../admin/sidebar/Sidebar";
 
 const ProfileAdmin = () => {
   return (
-    <div className="containerappp">
+    <>
+    <div className="">
       <Sidebar />
+      </div>
       <div className="">
+        
         
     
     
      
       
       
-      </div>
+      
 
     </div>
+    </>
   );
 };
 
