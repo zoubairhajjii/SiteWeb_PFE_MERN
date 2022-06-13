@@ -22,52 +22,47 @@ import ProductDetail from "./screens/prodects/productDetail/productDetail";
 import { Container } from "@mui/material";
 import Ajout from "./admin/Ajout";
 import NewServiceAdd from "./screens/service/pages/admin/NewServiceAdd";
-import User from "./admin/user/User";
 import NewUser from "./admin/user/newUser/NewUser";
 import Sidebar from "./admin/sidebar/Sidebar";
 import Homee from "./screens/home/Homee";
-import EditeSerivce from "./admin/service/EditeSerivce"
+import EditeSerivce from "./admin/service/EditeSerivce";
+import ListeUser from "./admin/user/ListeUser";
+import EditeUser from "./admin/user/eidteuser/EditeUser";
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      
-      <div className='appContainer'>
 
-      <Routes>
-        <Route path="/homee" element={<Homee />} />
+      <div className="appContainer">
+        <Routes>
+          <Route path="/homee" element={<Homee />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
-        <Route path="/newerviceAd" element={<NewServiceAdd />} />
-        <Route path="/about" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/productDetail" element={<ProductDetail />} />
+          <Route path="/newerviceAd" element={<NewServiceAdd />} />
+          <Route path="/about" element={<AboutUs />} />
 
-        <Route path="/users" element={<User />} />
-        <Route path="/newuser" element={<NewUser />} />
-        <Route path="/forgetpasword" element={<ForgotdPassword />} />
-        <Route path="/reset" element={<ResetPassword/>} />
         
+          <Route path="/newuser" element={<NewUser />} />
+          <Route path="/forgetpasword" element={<ForgotdPassword />} />
+          <Route path="/reset" element={<ResetPassword />} />
 
+          <Route
+            path="/ProfileProfissionell"
+            element={<ProfileProfissionell />}
+          />
+          <Route path="/profileadmin" element={<ProfileAdmin />} />
+          <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
+          <Route  path="/users/edit/:id" element={<EditeUser />} />
+          <Route path="/listuser" element={<ListeUser />} />
 
-
-
-        <Route
-          path="/ProfileProfissionell"
-          element={<ProfileProfissionell />}
-        />
-        <Route path="/profileadmin" element={<ProfileAdmin />} />
-        <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
-
-        <Route path="/newUser" element={<NewUser />} />
-      </Routes>
-
-     
-     
+          <Route path="/newUser" element={<NewUser />} />
+        </Routes>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
       <Footer />
     </BrowserRouter>
   );

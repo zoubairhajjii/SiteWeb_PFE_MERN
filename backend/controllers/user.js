@@ -1,5 +1,5 @@
 const UserSchema = require("../models/auth");
-
+const bcrypt = require("bcrypt");
 exports.GetUser = async (req, res) => {
   try {
     const listOfUsers = await UserSchema.find();
@@ -32,16 +32,18 @@ exports.editUser = async (req, res) => {
 exports.addUser = async (req, res) => {
   const { email } = req.body;
   try {
-    const found = await UserSchema.findOne({ email });
+    const user = await UserSchema.findOne({ email });
     //verify email if true or no
-    if (!found) {
+    if (user) {
       return res
         .status(400)
-        .json({ errors: [{ msg: "vzaaaaaaaa aa" }] });
+        .json({ errors: [{ msg: "not add " }] });
+        
     } else {
      await UserSchema.create(req.body);
-      res.status(201).json({ message: "User added with success" });
+      res.status(200).json({ message: "User added with success" });
     }
+   
 } catch (error) {
     res.status(500).send({ msg: "could not add user", error });
   }

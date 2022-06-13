@@ -1,9 +1,8 @@
-import { Publish } from "@mui/icons-material";
-import React from "react";
-import "./EditeSerivce.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-const EditeUser = () => {
+import { Link, useHistory, useNavigate, useParams } from "react-router-dom";
+
+const EditUser = () => {
   let Navigate = useNavigate();
   const { id } = useParams();
   const [user, setUser] = useState({
@@ -11,13 +10,13 @@ const EditeUser = () => {
     prenom: "",
     email: "",
     Telephone: "",
-    Addresse:"",
-    role: "",
   });
 
-  const { name, username, email, phone, website } = user;
+  const { name, prenom, email, Telephone } = user;
   const onInputChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({
+       ...user, 
+      [e.target.name]: e.target.value });
   };
 
   useEffect(() => {
@@ -26,12 +25,12 @@ const EditeUser = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/api/user/edituser${id}`, user);
-    Navigate("/");
+    await axios.put(`http://localhost:5000/api/user/edituser/${id}`, user);
+    Navigate("/listUser");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3003/users/${id}`);
+    const result = await axios.get("http://localhost:5000/api/user/users");
     setUser(result.data);
   };
   return (
@@ -46,55 +45,57 @@ const EditeUser = () => {
 
         <div className="userUpdate">
           <h3>Edit</h3>
-          <form action="" className="userUpdateForm">
+          <form
+            action=""
+            className="userUpdateForm"
+            onSubmit={(e) => onSubmit(e)}
+          >
             <div className="userUpdateLeft">
               <div className="userUpdateLeftItmes">
                 <label>name</label>
                 <input
+                name="name"
                   type="text"
-                  placeholder="annabeck99"
+                  placeholder="name"
                   className="userUpdateInput"
-                  onChange={e => onInputChange(e)}
+                  value={name}
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
               <div className="userUpdateLeftItmes">
                 <label>prenom</label>
                 <input
                   type="text"
-                  placeholder="Anna Beck "
+                  name="prenom"
+                  placeholder="prenom "
+                  value={prenom}
                   className="userUpdateInput"
-                  onChange={e => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
               <div className="userUpdateLeftItmes">
                 <label>Email</label>
                 <input
+                name="email"
                   type="text"
-                  placeholder="annabeck99@gmail.com "
+                  placeholder="email99@gmail.com "
                   className="userUpdateInput"
-                  onChange={e => onInputChange(e)}
+                  value={email}
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
               <div className="userUpdateLeftItmes">
                 <label>Telephone</label>
                 <input
+                name="Telephone"
                   type="text"
-                  placeholder="+ 123 456 7894"
+                  placeholder="+216 456 7894"
                   className="userUpdateInput"
-                  onChange={e => onInputChange(e)}
+                  value={Telephone}
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
-              <div className="userUpdateLeftItmes">
-                <label>Address</label>
-                <input
-                  type="text"
-                  placeholder="New York / USA"
-                  className="userUpdateInput"
-                  onChange={e => onInputChange(e)}
-                />
-              </div>
-        
-        
+
               <button className="userUpdateButton">Update</button>
             </div>
           </form>
@@ -104,4 +105,4 @@ const EditeUser = () => {
   );
 };
 
-export default EditeUser;
+export default EditUser;

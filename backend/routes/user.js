@@ -9,7 +9,7 @@ const { isAuth } = require("../middlewares/isAuth");
 
 const UserRoute = express.Router();
 UserRoute.post("/addUser", addUser);
-UserRoute.get("/users", isAuth, GetUser);
-UserRoute.delete("/deleteuser/:id", isAuth, deleteUser);
-UserRoute.put("/edituser/:id", isAuth, editUser);
+UserRoute.get("/users", GetUser);
+UserRoute.delete("/deleteuser/:id", deleteUser);
+UserRoute.put("/edituser/:id", editUser);
 module.exports = UserRoute;
