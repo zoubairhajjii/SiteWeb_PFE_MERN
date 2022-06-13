@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Container } from "@mui/material";
 import './NewUser.scss'
+import Sidebar from "../../sidebar/Sidebar";
 
 const NewUser = () => {
   const [name, setName] = useState();
@@ -19,7 +20,12 @@ const NewUser = () => {
     })
   };
   return (
-    <Container className="container">
+    <>
+    <div className="">
+      <Sidebar />
+      </div>
+      <div className="">
+      <Container className="container">
       <div className="new">
         <div className="newContainer">
           <div className="top">
@@ -97,6 +103,18 @@ const NewUser = () => {
         </div>
       </div>
     </Container>
+        
+    
+    
+     
+      
+      
+      
+
+    </div>
+    </>
+ 
+
   );
 };
 
