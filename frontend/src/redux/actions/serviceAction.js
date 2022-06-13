@@ -13,7 +13,7 @@ const header = {
 export const addService = (Service) =>async (dispatch)=>{
     try {
         const user = await getUserData();
-        const res= await axios.post(`/Service/addService/${user._id}`,Service,header)
+        const res= await axios.post(`/api/Service/addService/${user._id}`,Service,header)
         dispatch({type :ADD_SERVICE,payload:res.data})
         if (res.status===200){
             toast.success(res.data.msg)}

@@ -16,12 +16,24 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 import React from "react";
 import "./productDetail.css";
 import { Link } from "react-router-dom";
+import { getUserData } from "../../../utils/LocalStorage";
 const ProductDetail = () => {
   const { id } = useParams();
   const location = useLocation();
   const [prod, setProd] = useState(null);
-
+  const [user, setUser] = useState();
+  function demanderservice() {
+    axios
+      .post(
+        `http://localhost:5000/api/Demande/addDemande/${location.state.id}/${user._id}`,
+        { prix: 0, description: "new" }
+      )
+      .then((result) => alert("all good"))
+      .catch((err) => alert("error is" + err));
+  }
   useEffect(() => {
+    getUserData().then((res) => setUser(res));
+
     axios
       .get(
         "http://localhost:5000/api/Service/getProductDetail/" +
@@ -44,14 +56,13 @@ const ProductDetail = () => {
             <div className="alldis">
               <div className="userShowBottom">
                 <h3>Account Details</h3>
-                <h4>{prod.category}</h4> 
+                <h4>{prod.category}</h4>
                 <div className="userShowInfo">
-                  
                   <PermIdentity className="userShowIcon" />
                   <span>{prod.userId.name}</span>
                 </div>
                 <div>
-                <PermIdentity className="userShowIcon" />
+                  <PermIdentity className="userShowIcon" />
                   {prod.userId.prenom}
                 </div>
 
@@ -60,7 +71,7 @@ const ProductDetail = () => {
                   <h5>{prod.userId.Telephone}</h5>
                 </div>
                 <div className="userShowInfo">
-                 <MailOutline className="userShowIcon" />
+                  <MailOutline className="userShowIcon" />
                   <span>{prod.userId.email}</span>
                 </div>
                 <div className="userShowInfo">
@@ -73,7 +84,9 @@ const ProductDetail = () => {
                 </div>
               </div>
               <div className="usershowleft">
-                <button>Demande Service</button>
+                <button onClick={() => demanderservice()}>
+                  Demande Service
+                </button>
               </div>
             </div>
           </div>

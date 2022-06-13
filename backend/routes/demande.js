@@ -9,9 +9,9 @@ const { isAuth } = require("../middlewares/isAuth");
 
 const DemandeRoute = express.Router();
 
-DemandeRoute.post("/addDemande/:id", isAuth, addDemande);
-DemandeRoute.get("/Demandes", isAuth, getDemande);
-DemandeRoute.delete("/deleteDemande/:id", isAuth, deleteDemande);
-DemandeRoute.put("/editDemande/:id", isAuth, editDemande);
+DemandeRoute.post("/addDemande/:id/:userId", addDemande);
+DemandeRoute.get("/Demandes/:id", getDemande);
+DemandeRoute.delete("/deleteDemande/:id", deleteDemande);
+DemandeRoute.put("/editDemande/:id", editDemande);
 
 module.exports = DemandeRoute;

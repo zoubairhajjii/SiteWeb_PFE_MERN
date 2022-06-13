@@ -1,3 +1,4 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 const UserSchema = mongoose.Schema({
   name: { type: String, required: true },
@@ -5,6 +6,12 @@ const UserSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   Telephone: { type: String, required: true },
+  Adresse: { type: String, required: true },
+  role: {
+    type: String,
+    enum: ["Admin", "Professionnel", "Demandeur"],
+    default: "Demandeur",
+  },
 
 
  

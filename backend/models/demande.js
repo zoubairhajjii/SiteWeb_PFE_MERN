@@ -2,21 +2,20 @@ const mongoose = require("mongoose");
 
 const DemandeSchema = mongoose.Schema({
   date: { type: Date, default: Date.now() },
-  nomService: String,
   etat: {
     type: String,
     enum: ["attente", "validé", "non validé"],
     default: "attente",
   },
   description: { type: String, required: true },
-  Prix: { type: String },
+  prix: { type: String },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "UserSchema",
+    ref: "User",
   },
   ServiceId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "ServiceSchema",
+    ref: "Service",
   },
 });
 

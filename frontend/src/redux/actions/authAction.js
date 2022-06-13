@@ -9,7 +9,7 @@ import { LogoutUser, storeUserData } from "../../utils/LocalStorage";
 export const LoginAction = (user, Navigate)=>async (dispatch) =>{
     try {
 
-        const res =await axios.post("/auth/signIn",user)
+        const res =await axios.post("/api/auth/signIn",user)
         dispatch({type :LOGIN_USER ,payload:res.data})
         if (res.data.found.role ==="Admin"){
             
@@ -45,7 +45,7 @@ export const LoginAction = (user, Navigate)=>async (dispatch) =>{
 export const Registration = (user, Navigate)=>async (dispatch)=>{
    
     try {
-        const res= await axios.post("auth/signUp",user)
+        const res= await axios.post("/api/auth/signUp",user)
         dispatch({type :REGISTER_USER,payload:res.data})
         if (res.status===200){
             

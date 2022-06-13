@@ -1,11 +1,11 @@
 const DemandeSchema = require("../models/demande");
 
 exports.addDemande = async (req, res) => {
-  const { id } = req.params;
+  const { id,userId } = req.params;
   try {
     const Demande = new DemandeSchema({
       ...req.body,
-      userId: req.user._id,
+      userId: userId,
       ServiceId: id,
     });
     await Demande.save();
@@ -15,8 +15,9 @@ exports.addDemande = async (req, res) => {
   }
 };
 exports.getDemande = async (req, res) => {
-  try {
-    const ListOfDemande = await DemandeSchema.find();
+  const {id}=req.params;
+    try {
+    const ListOfDemande = await DemandeSchema.find({userId:id});
     res.status(200).send({ msg: "list of demande", ListOfDemande });
   } catch (error) {
     res.status(500).send({ msg: "could not get list of demande", error });
