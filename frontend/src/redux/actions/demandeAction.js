@@ -1,6 +1,7 @@
 import { ADD_DEMANDE, DELET_DEMANDE, EDIT_DEMANDE, ERRORS, GET_DEMANDES } from "../types"
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 
 const header = {
@@ -40,9 +41,10 @@ export const deletDemande = (id) =>async (dispatch)=>{
         dispatch({type :ERRORS ,payload:error.response.data})
         
     }}
-    export const getDemande = () =>async (dispatch)=>{
+    export const getDemande = (id) =>async (dispatch)=>{
         try {
-            const res= await axios.post(`/Demande/Demandes/`,{Headers:header})
+            const res= await axios.get(`/api/Demande/Demandes/${id}`,)
+            console.log(res)
             dispatch({type :GET_DEMANDES,payload:res.data})
             if (res.status===200){
                 toast.success(res.data.msg)}

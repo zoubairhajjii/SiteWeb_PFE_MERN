@@ -3,7 +3,7 @@ const ServiceSchema = require("../models/service");
 
 exports.addService = async (req, res) => {
   const { id_user } = req.params;
- 
+
   try {
     const Professionnel = await UserSchema.findById(id_user);
     if (Professionnel.role === "Professionnel") {
@@ -29,10 +29,24 @@ exports.getService = async (req, res) => {
     res.status(500).send({ msg: "could not get list of service", error });
   }
 };
+exports.getServiceByProId = async (req, res) => {
+  const { userid } = req.params;
+  try {
+
+   
+
+    await ServiceSchema.find({ userId: userid }).then((result) =>
+      res.status(200).send(result)
+    );
+  } catch (error) {
+    res.status(500).send({ msg: "could not get list of service", error });
+  }
+};
+
 exports.getServiceByCatName = async (req, res) => {
   const { name } = req.params;
   try {
-    ListOfService = await ServiceSchema.find({category:name});
+    ListOfService = await ServiceSchema.find({ category: name });
     res.status(200).send({ msg: "list of Service", ListOfService });
   } catch (error) {
     res.status(500).send({ msg: "could not get list of service", error });
@@ -40,17 +54,16 @@ exports.getServiceByCatName = async (req, res) => {
 };
 
 exports.getProductById = async (req, res) => {
- const {id } =req.params;
-  try { 
-    ListOfService = await ServiceSchema.findById(id).populate('userId');
-    
- console.log(id)
+  const { id } = req.params;
+  try {
+    ListOfService = await ServiceSchema.findById(id).populate("userId");
+
+    console.log(id);
     res.status(200).json({ msg: "detail user", ListOfService });
-  
   } catch (error) {
     res.status(500).json({ msg: "could not get detail", error });
   }
-}
+};
 exports.deleteService = async (req, res) => {
   const { id } = req.params;
   try {

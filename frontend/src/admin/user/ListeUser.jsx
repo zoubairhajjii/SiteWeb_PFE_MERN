@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import './listeUser.css'
+import './listeUser.css';
 import Sidebar from "../sidebar/Sidebar";
 
 const ListeUser = () => {
@@ -31,7 +31,7 @@ const ListeUser = () => {
     <div className="py-6">
       <h1>Liste USER</h1>
       <div className="zz">
-      <table class="table border shadow">
+      <table className="tableau" class="table border shadow">
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>

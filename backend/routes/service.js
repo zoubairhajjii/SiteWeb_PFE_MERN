@@ -2,6 +2,7 @@ const express = require("express");
 const {
   addService,
   getService,
+  getServiceByProId,
   deleteService,
   editService,
   getServiceByCatName,
@@ -12,6 +13,8 @@ const { isAuth } = require("../middlewares/isAuth");
 const ServiceRoute = express.Router();
 
 ServiceRoute.post("/addService/:id_user", isAuth, addService);
+
+ServiceRoute.get("/getProDemandes/:userid",getServiceByProId)
 ServiceRoute.get("/getByServiceName/:name", getServiceByCatName);
 ServiceRoute.get("/getProductDetail/:id", getProductById);
 ServiceRoute.get("/services", getService);

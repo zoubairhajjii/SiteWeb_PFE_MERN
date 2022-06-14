@@ -30,7 +30,7 @@ const ProductDetail = () => {
     axios
       .post(
         `http://localhost:5000/api/Demande/addDemande/${location.state.id}/${user._id}`,
-        { prix: price , description: description }
+        { prix: price, description: description }
       )
       .then((result) => alert("all good"))
       .catch((err) => alert("error is" + err));
@@ -50,43 +50,45 @@ const ProductDetail = () => {
     return <div>Loading</div>;
   }
   return (
-    <div className="div">
-      <div className="card_item">
-        <div className="card_inner">
+    <div className="raszeby">
+      <div>
+        <div>
           <img src={prod.image} alt="" />
-          <div className="prod">
-            <div className="">{prod.category}</div>
+        </div>
+      </div>
 
-            <div>
-              <div className="name">{prod.userId.name}</div>
-              <div className="prenom">{prod.userId.prenom}</div>
-
-              <HomeIcon />
-              {prod.userId.Adresse}
-            </div>
-            <div>
-              <PhoneIcon /> {prod.userId.Telephone}
-            </div>
-            <div>
-              <EmailIcon />
-              {prod.userId.email}
-            </div>
-
-            <div className="App">
-              <button
-                className="openModalBtn"
-                onClick={() => {
-                  setModalOpen(true);
-                  console.log("clicked")
-                }}
-              >
-                Add demand
-              </button>
-                
-              {modalOpen && <Modal setOpenModal={setModalOpen} />}
-            </div>
+      <div className="asba">
+        <div className="">{prod.category}</div>
+        <div>
+          <div className="coucou" >
+            {prod.userId.name} {prod.userId.prenom}
           </div>
         </div>
+        <div className="coucou">
+          <HomeIcon />
+          {prod.userId.Adresse}
+        </div>
+        <div className="coucou">
+          <PhoneIcon /> {prod.userId.Telephone}
+        </div>
+        <div className="coucou">
+          <EmailIcon />
+          {prod.userId.email}
+        </div>
+        </div>
+        <div className="App">
+          <button
+            className="openModalBtn"
+            onClick={() => {
+              setModalOpen(true);
+              console.log("clicked");
+            }}
+          >
+            Add demand
+          </button>
+
+          {modalOpen && <Modal setOpenModal={setModalOpen} />}
+       
       </div>
     </div>
   );

@@ -43,11 +43,10 @@ function Modal({ setOpenModal }) {
           </button>
         </div>
        
-        <div className="input">
+        <div className="inpt">
           <input type="text" placeholder="description"
           onChange={desfunction}/>
-        </div>
-        <div>
+       
             <input type="number" placeholder="price"
             name="price"
             onChange={pricefunction}/>

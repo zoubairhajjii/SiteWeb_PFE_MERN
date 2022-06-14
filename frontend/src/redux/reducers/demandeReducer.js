@@ -13,13 +13,13 @@ const initialState = {
         case ADD_DEMANDE:
             return {
                 ...state,
-                demande: [...demande,action.payload],
+                demande:payload,
                 // contenu eli bech yji mel reponse(action.paylode)
             };
             case GET_DEMANDES :
                 return{
                     ...state,
-                  demande: [...demande,action.payload],
+                  demande:payload,
                 }
                 case EDIT_DEMANDE :
                     return{
@@ -28,7 +28,7 @@ const initialState = {
             case DELET_DEMANDE :
                 return{
                     ...state,
-                    demande : state.demande.slice(0,action.payload.demande.id) 
+                    demande:state.demande.filter((demand) => (demand._id == payload._id ? payload : demand)),
                 }
         default:
             return state;

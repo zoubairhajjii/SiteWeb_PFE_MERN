@@ -1,7 +1,8 @@
 const DemandeSchema = require("../models/demande");
+const ServiceSchema = require("../models/service");
 
 exports.addDemande = async (req, res) => {
-  const { id,userId } = req.params;
+  const { id, userId } = req.params;
   try {
     const Demande = new DemandeSchema({
       ...req.body,
@@ -14,10 +15,35 @@ exports.addDemande = async (req, res) => {
     res.status(500).send({ msg: "could not add Demande", error });
   }
 };
+
+exports.getDemandesPro = async (req, res) => {
+  const { id } = req.params;
+  var resf = [];
+  try {
+    await ServiceSchema.find({ userId: id }).then(async (result) => {
+      for (const element of result) {
+        await DemandeSchema.find({ ServiceId: element._id }).populate("userId").then(
+          async (finalres) => {
+            var objt = { service: element, demandes: finalres };
+
+            resf.push(objt);
+          }
+        );
+      }
+    });
+
+    res.status(200).send(resf);
+  } catch (error) {
+    res.status(500).send({ msg: "could not get list of demande", error });
+  }
+};
+
 exports.getDemande = async (req, res) => {
-  const {id}=req.params;
-    try {
-    const ListOfDemande = await DemandeSchema.find({userId:id});
+  const { id } = req.params;
+  try {
+    const ListOfDemande = await await DemandeSchema.find({
+      userId: id,
+    }).populate("ServiceId");
     res.status(200).send({ msg: "list of demande", ListOfDemande });
   } catch (error) {
     res.status(500).send({ msg: "could not get list of demande", error });

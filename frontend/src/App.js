@@ -26,6 +26,9 @@ import EditeSerivce from "./admin/service/EditeSerivce";
 import ListeUser from "./admin/user/ListeUser";
 import EditeUser from "./admin/user/eidteuser/EditeUser";
 import ListeService from "./admin/service/ListeService";
+import UserProfile from "./screens/user/UserProfile";
+import Mydemade from "./screens/user/Mydemade";
+import DemandesPro from "./screens/DemandesPro";
 function App() {
   return (
     <BrowserRouter>
@@ -55,9 +58,17 @@ function App() {
           <Route path="/profileadmin" element={<ProfileAdmin />} />
           <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
           <Route path="/listeService" element={<ListeService />} />
+          <Route path="/demandesPro" element={<DemandesPro />} />
 
           <Route  path="/users/edit/:id" element={<EditeUser />} />
           <Route path="/listuser" element={<ListeUser />} />
+          <Route path="/listuser" element={<ListeUser />} />
+          <Route path="/userProfile" element={<UserProfile/>} />
+          <Route path="/Mydemade" element={<Mydemade/>} />
+
+
+          
+
 
           <Route path="/newUser" element={<NewUser />} />
         </Routes>

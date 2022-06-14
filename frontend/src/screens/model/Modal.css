@@ -9,14 +9,15 @@
 }
 
 .modalContainer {
-  width: 450px;
+  width: 400px;
   height: 300px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
-  margin-bottom: 500px;
+  margin-bottom: 780px;
+  margin-right: 900px;
 }
 
 .modalContainer .title {
@@ -25,17 +26,14 @@
   margin-top: 10px;
 }
 
-.titleCloseBtn {
+.titleCloseBtn 
+{
+  border-radius: 20px;
   display: flex;
   justify-content: flex-end;
 }
 
-.titleCloseBtn button {
-  background-color: transparent;
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
-}
+ 
 
 .modalContainer .body {
   flex: 50%;
@@ -65,10 +63,11 @@
   cursor: pointer;
 }
 
-#cancelBtn {
-  background-color: crimson;
+.openModalBtn{
+  border-radius: 5px;
+  background-color: rgb(62, 149, 114);
+  color: brown;
 }
-.input{
-  border-radius: 30px;
-
+.inpt{
+  border-radius: 8px;
 }
