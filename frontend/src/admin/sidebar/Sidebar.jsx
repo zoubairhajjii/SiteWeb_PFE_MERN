@@ -21,11 +21,11 @@ const Sidebar = () => {
         <div className='sidebarMenu'>
       
           <ul className='sidebarList'>
-            <Link to='/users' className='sidebarListItem '>
+            <Link to='/listUser' className='sidebarListItem '>
               <PersonOutline className='sidebarIcon' />
               Users
             </Link>
-            <Link to='/products' className='sidebarListItem'>
+            <Link to='/listeService' className='sidebarListItem'>
               <Storefront className='sidebarIcon' />
              Services
             </Link>
@@ -33,7 +33,7 @@ const Sidebar = () => {
               <PersonOutline className='sidebarIcon' />
               AddUSER
             </Link>
-            <Link to='/users' className='sidebarListItem'>
+            <Link to='/addservice' className='sidebarListItem'>
               <BarChart className='sidebarIcon' />
               Add Service
             </Link>

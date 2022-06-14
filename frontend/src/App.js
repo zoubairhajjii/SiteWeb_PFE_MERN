@@ -19,15 +19,13 @@ import { getUserData } from "./utils/LocalStorage";
 import Categories from "./screens/categories/Categories";
 import Product from "./screens/prodects/Product";
 import ProductDetail from "./screens/prodects/productDetail/productDetail";
-import { Container } from "@mui/material";
-import Ajout from "./admin/Ajout";
 import NewServiceAdd from "./screens/service/pages/admin/NewServiceAdd";
 import NewUser from "./admin/user/newUser/NewUser";
-import Sidebar from "./admin/sidebar/Sidebar";
 import Homee from "./screens/home/Homee";
 import EditeSerivce from "./admin/service/EditeSerivce";
 import ListeUser from "./admin/user/ListeUser";
 import EditeUser from "./admin/user/eidteuser/EditeUser";
+import ListeService from "./admin/service/ListeService";
 function App() {
   return (
     <BrowserRouter>
@@ -35,7 +33,7 @@ function App() {
 
       <div className="appContainer">
         <Routes>
-          <Route path="/homee" element={<Homee />} />
+          <Route path="/" element={<Homee />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -56,6 +54,8 @@ function App() {
           />
           <Route path="/profileadmin" element={<ProfileAdmin />} />
           <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
+          <Route path="/listeService" element={<ListeService />} />
+
           <Route  path="/users/edit/:id" element={<EditeUser />} />
           <Route path="/listuser" element={<ListeUser />} />
 

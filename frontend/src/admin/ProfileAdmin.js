@@ -7,7 +7,7 @@ const ProfileAdmin = () => {
     <div className="">
       <Sidebar />
       </div>
-      <div className="">
+     
         
         
     
@@ -17,7 +17,7 @@ const ProfileAdmin = () => {
       
       
 
-    </div>
+   
     </>
   );
 };

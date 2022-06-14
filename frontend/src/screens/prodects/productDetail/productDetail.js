@@ -7,26 +7,30 @@ import {
   MailOutline,
   PermIdentity,
   PhoneAndroid,
+  Podcasts,
 } from "@mui/icons-material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import HomeIcon from "@mui/icons-material/Home";
 import PinDropIcon from "@mui/icons-material/PinDrop";
-
+import Modal from "../../model/Modal";
 import React from "react";
 import "./productDetail.css";
 import { Link } from "react-router-dom";
 import { getUserData } from "../../../utils/LocalStorage";
 const ProductDetail = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [price, setprice] = useState("");
+  const [description, setdescription] = useState("");
   const { id } = useParams();
   const location = useLocation();
   const [prod, setProd] = useState(null);
   const [user, setUser] = useState();
-  function demanderservice() {
+  function addservice() {
     axios
       .post(
         `http://localhost:5000/api/Demande/addDemande/${location.state.id}/${user._id}`,
-        { prix: 0, description: "new" }
+        { prix: price , description: description }
       )
       .then((result) => alert("all good"))
       .catch((err) => alert("error is" + err));
@@ -46,53 +50,45 @@ const ProductDetail = () => {
     return <div>Loading</div>;
   }
   return (
-    <>
-      <div className="all">
-        <div className="userContainer">
-          <div className="userShow">
-            <div className="userShowTop">
-              <img src={prod.image} alt="" />
-            </div>
-            <div className="alldis">
-              <div className="userShowBottom">
-                <h3>Account Details</h3>
-                <h4>{prod.category}</h4>
-                <div className="userShowInfo">
-                  <PermIdentity className="userShowIcon" />
-                  <span>{prod.userId.name}</span>
-                </div>
-                <div>
-                  <PermIdentity className="userShowIcon" />
-                  {prod.userId.prenom}
-                </div>
+    <div className="div">
+      <div className="card_item">
+        <div className="card_inner">
+          <img src={prod.image} alt="" />
+          <div className="prod">
+            <div className="">{prod.category}</div>
 
-                <div className="userShowInfo">
-                  <PhoneAndroid className="userShowIcon" />
-                  <h5>{prod.userId.Telephone}</h5>
-                </div>
-                <div className="userShowInfo">
-                  <MailOutline className="userShowIcon" />
-                  <span>{prod.userId.email}</span>
-                </div>
-                <div className="userShowInfo">
-                  <HomeIcon className="userShowIcon" />
-                  <span>{prod.userId.Adresse} </span>
-                </div>
-                <div className="userShowInfo">
-                  <PinDropIcon className="userShowIcon" />
-                  <span>{prod.location} </span>
-                </div>
-              </div>
-              <div className="usershowleft">
-                <button onClick={() => demanderservice()}>
-                  Demande Service
-                </button>
-              </div>
+            <div>
+              <div className="name">{prod.userId.name}</div>
+              <div className="prenom">{prod.userId.prenom}</div>
+
+              <HomeIcon />
+              {prod.userId.Adresse}
+            </div>
+            <div>
+              <PhoneIcon /> {prod.userId.Telephone}
+            </div>
+            <div>
+              <EmailIcon />
+              {prod.userId.email}
+            </div>
+
+            <div className="App">
+              <button
+                className="openModalBtn"
+                onClick={() => {
+                  setModalOpen(true);
+                  console.log("clicked")
+                }}
+              >
+                Add demand
+              </button>
+                
+              {modalOpen && <Modal setOpenModal={setModalOpen} />}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

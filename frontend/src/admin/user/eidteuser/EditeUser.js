@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory, useNavigate, useParams } from "react-router-dom";
+import Sidebar from "../../sidebar/Sidebar";
 
 const EditUser = () => {
   let Navigate = useNavigate();
@@ -35,7 +36,9 @@ const EditUser = () => {
   };
   return (
     <>
+   
       <div className="user">
+     
         <div className="userTitleContainer">
           <h1>Edit User</h1>
           <Link to="/newUser">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import './listeUser.css'
+import Sidebar from "../sidebar/Sidebar";
 
 const ListeUser = () => {
   const [users, setUser] = useState([]);
@@ -21,10 +22,15 @@ const ListeUser = () => {
   };
 
   return (
-    
+    <>
+    <div className="li">
+    <Sidebar />
+    </div>
     <div className="aa">
+    
     <div className="py-6">
-      <h1>Home Page</h1>
+      <h1>Liste USER</h1>
+      <div className="zz">
       <table class="table border shadow">
         <thead class="thead-dark">
           <tr>
@@ -66,7 +72,10 @@ const ListeUser = () => {
         </tbody>
       </table>
     </div>
+    </div>
+
   </div>
+  </>
 );
 };
 

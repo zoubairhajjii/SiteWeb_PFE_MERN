@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <AppBar position="static">
       <div className="header d__flex">
-        <Link to="/homee">
+        <Link to="/">
           <div className="header__logo d__flex">JobFinder</div>
         </Link>
         <div
@@ -38,7 +38,7 @@ export default function Header() {
               : " nav__list d__flex hamburger__open"
           }
         >
-          <Link to="/homee">
+          <Link to="/">
             <div className="nav__option">Home</div>
           </Link>
 

@@ -7,7 +7,7 @@
 .sidebar {
   flex: 1;
   height: calc(100vh - 50px);
-  background-color: rgb(251, 251, 255);
+  background-color: rgb(192, 192, 198);
   position: sticky;
   top: 50px;
 }
@@ -21,7 +21,7 @@
 }
 .sidebar h3 {
   font-size: 17px;
-  color: rgb(187, 186, 186);
+  color: rgb(216, 117, 117);
   margin-bottom: 10px;
 }
 .sidebarListItem {
@@ -33,7 +33,7 @@
   padding: 10px;
   margin-bottom: 10px;
   text-decoration: none;
-  color: #717d8e;
+  color: #3379dc;
 }
 .sidebarListItem.active,
 
