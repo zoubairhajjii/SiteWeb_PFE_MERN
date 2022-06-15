@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const ServiceSchema = mongoose.Schema({
   category: { type: String, required: true },
   DescriptionService: { type: String, required: true },
-  image: { type: String,required: true},
+  image: { type: String},
   localisation: String,
   price:{type:String,required :true},
   userId: {

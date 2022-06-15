@@ -16,6 +16,10 @@ function Mydemade() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  function addfeedback(id) {
+    axios.post(`http://localhost:5000/api/FeedBack/${id}/addFeedBack`).then();
+  }
+
   function getData(id) {
     axios
       .get("http://localhost:5000/api/Demande/Demandes/" + id)
@@ -27,23 +31,37 @@ function Mydemade() {
   }, []);
 
   return (
-    <div className="container">
-        <div>
-
-      {demandes.map((demn) => (
-                <div style={{border:'solid black 1px',margin:10}}>
-          <p>{demn.prix}</p>
-          <p>{demn.prix}</p>
-          <p>{demn.ServiceId.DescriptionService}</p>
-          <p>{demn.prix}</p>
-          <p>{demn.prix}</p>
-
-                </div>
-
-      ))}
+    
+      <div>
+        {demandes.map((demn) => (
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+             <div class="card-body">
+             <div class="col">
+             <h5 class="card-title">{demn.ServiceId.DescriptionService}</h5>
+             <div class="card-text"> 
+             <h1>price</h1> 
+               {demn.prix}
               </div>
-
-    </div>
+               <div class="card-text"> 
+              
+               {demn.etat}</div>
+        
+         
+           
+               {demn.etat === "validé" && (
+              <button onClick={() => {}} style={{ backgroundColor: "aqua" }}>
+                add feedback
+              </button>
+            )}
+          </div>
+          </div>
+          </div>
+        ))}
+      </div>
+   
   );
 }
 export default Mydemade;
+
+
+

@@ -41,7 +41,7 @@ exports.getDemandesPro = async (req, res) => {
 exports.getDemande = async (req, res) => {
   const { id } = req.params;
   try {
-    const ListOfDemande = await await DemandeSchema.find({
+    const ListOfDemande =  await DemandeSchema.find({
       userId: id,
     }).populate("ServiceId");
     res.status(200).send({ msg: "list of demande", ListOfDemande });
@@ -58,6 +58,19 @@ exports.deleteDemande = async (req, res) => {
     res.status(500).send({ msg: "could not delete Demande", error });
   }
 };
+
+exports.acceptDeny = async (req, res) => {
+  const { id,status } = req.params;
+  try {
+    const DemandeEdited = await DemandeSchema.findByIdAndUpdate(id, {"etat":status==1?"validé":"non validé"
+    });
+    res.status(200).send({ msg: "demande edited", DemandeEdited });
+  } catch (error) {
+    res.status(500).send({ msg: "could not edit demande", error });
+  }
+};
+
+
 exports.editDemande = async (req, res) => {
   const { id } = req.params;
   try {

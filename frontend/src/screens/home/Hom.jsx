@@ -16,20 +16,20 @@ function Hom() {
         <div className="card">
           <img src={disponibilite} alt="card img" className="card-img" />
           <div className="card-body">
-            <h5 className="card-title">Transparence de prix</h5>
+            <h5 className="card-title">Disponible 7/7</h5>
             <p className="card-text">
-              Nous vous proposons une grille tarifaire selon votre besoin en
-              réparation / installation.
+              Réseau de techniciens compétents, disponibles sur le grand Tunis
+              même pendant des heures tardives.
             </p>
           </div>
         </div>
         <div className="card">
           <img src={garantie} alt="card img" className="card-img" />
           <div className="card-body">
-            <h5 className="card-title">Transparence de prix</h5>
+            <h5 className="card-title">Garantie assuré</h5>
             <p className="card-text">
-              Nous vous proposons une grille tarifaire selon votre besoin en
-              réparation / installation.
+              Darydar vous offre une garantie sur les interventions et un
+              service de suivi à la hauteur de vos attentes.
             </p>
           </div>
         </div>
@@ -46,10 +46,10 @@ function Hom() {
         <div className="card">
           <img src={qualite} alt="card img" className="card-img" />
           <div className="card-body">
-            <h5 className="card-title">Transparence de prix</h5>
+            <h5 className="card-title">Service de qualité</h5>
             <p className="card-text">
-              Nous vous proposons une grille tarifaire selon votre besoin en
-              réparation / installation.
+              Nos techniciens sont sélectionnés et testés par DaryDar pour vous
+              offrir la meilleure prestation.
             </p>
           </div>
         </div>

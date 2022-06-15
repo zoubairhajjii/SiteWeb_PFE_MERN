@@ -29,6 +29,7 @@ import ListeService from "./admin/service/ListeService";
 import UserProfile from "./screens/user/UserProfile";
 import Mydemade from "./screens/user/Mydemade";
 import DemandesPro from "./screens/DemandesPro";
+import AddedServiceAdmin from "./admin/service/AddedServiceAdmin";
 function App() {
   return (
     <BrowserRouter>
@@ -46,7 +47,6 @@ function App() {
           <Route path="/newerviceAd" element={<NewServiceAdd />} />
           <Route path="/about" element={<AboutUs />} />
 
-        
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/forgetpasword" element={<ForgotdPassword />} />
           <Route path="/reset" element={<ResetPassword />} />
@@ -60,15 +60,13 @@ function App() {
           <Route path="/listeService" element={<ListeService />} />
           <Route path="/demandesPro" element={<DemandesPro />} />
 
-          <Route  path="/users/edit/:id" element={<EditeUser />} />
+          <Route path="/users/edit/:id" element={<EditeUser />} />
+          <Route path="addedServiceAdmin" element={<AddedServiceAdmin />} />
+
           <Route path="/listuser" element={<ListeUser />} />
           <Route path="/listuser" element={<ListeUser />} />
-          <Route path="/userProfile" element={<UserProfile/>} />
-          <Route path="/Mydemade" element={<Mydemade/>} />
-
-
-          
-
+          <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="/Mydemade" element={<Mydemade />} />
 
           <Route path="/newUser" element={<NewUser />} />
         </Routes>

@@ -23,37 +23,38 @@ const ListeUser = () => {
 
   return (
     <>
-    <div className="li">
+    {" "}
     <Sidebar />
-    </div>
-    <div className="aa">
-    
-    <div className="py-6">
-      <h1>Liste USER</h1>
-      <div className="zz">
-      <table className="tableau" class="table border shadow">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">prenom</th>
-            <th scope="col">Email</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div classNameName="cc">
+      <div className="py-6 cc container">
+        <h1>Liste Service</h1>
+        <table className="table border shadow">
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">name</th>
+              <th scope="col">prenom</th>
+              <th scope="col">email</th>
+              <th scope="col">Telephone</th>
+              <th scope="col">role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
           {users.map((user, index) => (
             <tr>
               <th scope="row">{index + 1}</th>
               <td>{user.name}</td>
               <td>{user.prenom}</td>
               <td>{user.email}</td>
+              <td>{user.Telephone}</td>
+              <td>{user.role}</td>
               <td>
                 <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
                   View
                 </Link>
                 <Link
-                  class="btn btn-outline-primary mr-2"
+                  class="btn btn-success"
                   to={`/users/edit/${user._id}`}
                 >
                   Edit
@@ -74,7 +75,7 @@ const ListeUser = () => {
     </div>
     </div>
 
-  </div>
+ 
   </>
 );
 };

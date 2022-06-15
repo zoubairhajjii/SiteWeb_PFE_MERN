@@ -1,113 +1,114 @@
-import {
-  CalendarToday,
-  LocationSearching,
-  MailOutline,
-  PermIdentity,
-  PhoneAndroid,
-  Publish,
-} from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
-
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-const EditeSerivce = () => {
- Navigate=useNavigate()
+import { Link, useHistory, useNavigate, useParams } from "react-router-dom";
+import Sidebar from "../sidebar/Sidebar";
+import "./editeSerivce.css"
+import { getUserData } from "../../utils/LocalStorage";
+const EditUser = () => {
+  let Navigate = useNavigate();
+  const [user, setUser] = useState();
   const { id } = useParams();
-  const [user, setUser] = useState({
-    name: "",
-    prenom: "",
-    email: "",
-    Telephone: "",
-    Address: "",
+  const [service, setService] = useState({
+    category: "",
+    DescriptionService: "",
+    
+    localisation: "",
+    price:"",
+   
   });
 
-  const { name, username, email, phone, website } = user;
+  const { category, DescriptionService,  localisation, price} = service;
   const onInputChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setService({
+       ...service, 
+      [e.target.name]: e.target.value });
   };
 
- 
+  useEffect(() => {
+    getUserData().then((res) => setUser(res));
+    loadUser();
+  }, []);
 
-  
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put(`http://localhost:5000/api/Service/editService/${id}/${user._id}`, service);
+    Navigate("/listeService");
+  };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3003/users/${id}`);
-    setUser(result.data);
-    return (
-      <>
-        <div className="user">
-          <div className="userTitleContainer">
-            <h1>Edit User</h1>
-            <Link to="/newUser">
-              <button>Create</button>
-            </Link>
-          </div>
-
-          <div className="userUpdate">
-            <h3>Edit</h3>
-            <form action="" className="userUpdateForm">
-              <div className="userUpdateLeft">
-                <div className="userUpdateLeftItmes">
-                  <label>Username</label>
-                  <input
-                    type="text"
-                    placeholder="annabeck99"
-                    className="userUpdateInput"
-                  />
-                </div>
-                <div className="userUpdateLeftItmes">
-                  <label>Full Name</label>
-                  <input
-                    type="text"
-                    placeholder="Anna Beck "
-                    className="userUpdateInput"
-                  />
-                </div>
-                <div className="userUpdateLeftItmes">
-                  <label>Email</label>
-                  <input
-                    type="text"
-                    placeholder="annabeck99@gmail.com "
-                    className="userUpdateInput"
-                  />
-                </div>
-                <div className="userUpdateLeftItmes">
-                  <label>Phone</label>
-                  <input
-                    type="text"
-                    placeholder="+ 123 456 7894"
-                    className="userUpdateInput"
-                  />
-                </div>
-                <div className="userUpdateLeftItmes">
-                  <label>Address</label>
-                  <input
-                    type="text"
-                    placeholder="New York / USA"
-                    className="userUpdateInput"
-                  />
-                </div>
-              </div>
-              <div className="userUpdateRight">
-                <div className="userUpdateUpload">
-                  <img
-                    className="userUpdateImg"
-                    src="https://images.pexels.com/photos/1116380/pexels-photo-1116380.jpeg?cs=srgb&dl=pexels-ba-phi-1116380.jpg&fm=jpg"
-                    alt=""
-                  />
-                  <label htmlFor="file">
-                    <Publish className="userUpdateIcon" />
-                  </label>
-                  <input type="file" id="file" style={{ display: "none" }} />
-                </div>
-                <button className="userUpdateButton">Update</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </>
-    );
+    const result = await axios.get("http://localhost:5000/api/user/users");
+    setService(result.data);
   };
+  return (
+    <>
+   <Sidebar />
+      <div className="user">
+     
+        <div className="userTitleContainer">
+          <h1>Edit SERVCIE</h1>
+         
+        </div>
+
+        <div className="userUpdate">
+          <h3>Edit</h3>
+          <form
+            action=""
+            className="userUpdateForm"
+            onSubmit={(e) => onSubmit(e)}
+          >
+            <div className="userUpdateLeft">
+              <div className="userUpdateLeftItmes">
+                <label>category</label>
+                <input
+                name="category"
+                  type="text"
+                  placeholder="category"
+                  className="userUpdateInput"
+                  value={category}
+                  onChange={(e) => onInputChange(e)}
+                />
+              </div>
+              <div className="userUpdateLeftItmes">
+                <label>DescriptionService</label>
+                <input
+                  type="text"
+                  name="DescriptionService"
+                  placeholder="DescriptionService "
+                  value={DescriptionService}
+                  className="userUpdateInput"
+                  onChange={(e) => onInputChange(e)}
+                />
+              </div>
+              <div className="userUpdateLeftItmes">
+                <label>localisation</label>
+                <input
+                name="localisation"
+                  type="text"
+                  placeholder="localisation "
+                  className="userUpdateInput"
+                  value={localisation}
+                  onChange={(e) => onInputChange(e)}
+                />
+              </div>
+              <div className="userUpdateLeftItmes">
+                <label>price</label>
+                <input
+                name="price"
+                  type="number"
+                  placeholder="price"
+                  className="userUpdateInput"
+                  value={price}
+                  onChange={(e) => onInputChange(e)}
+                />
+              </div>
+
+              <button className="btt">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
 };
 
-export default EditeSerivce;
+export default EditUser;

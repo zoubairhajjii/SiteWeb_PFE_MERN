@@ -1,6 +1,10 @@
 .user {
     flex: 4;
     padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 200px;
+    
   }
   .userTitleContainer {
     display: flex;

@@ -15,6 +15,7 @@ const ListeService = () => {
       "http://localhost:5000/api/Service/services"
     );
     setService(result.data.ListOfService);
+  
     console.log(result.data);
   };
 
@@ -42,12 +43,12 @@ const ListeService = () => {
                   <td>{service.category}</td>
                   <td>{service.localisation}</td>
                   <td>{service.price}</td>
-                  <Link class="btn btn-primary mr-2" to={`/users/${service.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users/${service._id}`}>
                   View
                 </Link>
                 <Link
-                  class="btn btn-outline-primary mr-2"
-                  to={`/users/edit/${service._id}`}
+                  class="btn btn-success"
+                  to={`/EditeSerivce/${service._id}`}
                 >
                   Edit
                 </Link>

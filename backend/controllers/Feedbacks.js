@@ -5,7 +5,6 @@ exports.addFeedBack = async (req, res) => {
   try {
     const Feedback = new FeedbackSchema({
       ...req.body,
-      userId: req.user._id,
       DemId: id,
     });
     await Feedback.save();

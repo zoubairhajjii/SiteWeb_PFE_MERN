@@ -81,15 +81,17 @@ exports.deleteService = async (req, res) => {
   }
 };
 exports.editService = async (req, res) => {
-  const { id } = req.params;
+  const { id,id_user } = req.params;
   try {
-    const Professionnel = await UserSchema.findById(req.user._id);
-    if (Professionnel.role === "Professionnel") {
+    const Admin = await UserSchema.findById(id_user);
+    if (Admin.role === "Admin") {
       const ServiceEdited = await ServiceSchema.findByIdAndUpdate(id, {
         $set: { ...req.body },
       });
+     
       res.status(200).send({ msg: "Service edited", ServiceEdited });
     } else {
+     
       res
         .status(400)
         .send({ msg: "you are not authorizated for editing Service " });

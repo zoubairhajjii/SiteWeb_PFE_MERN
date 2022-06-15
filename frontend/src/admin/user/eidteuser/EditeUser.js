@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory, useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../../sidebar/Sidebar";
-
+import "./edite.css"
 const EditUser = () => {
   let Navigate = useNavigate();
   const { id } = useParams();
@@ -11,9 +11,11 @@ const EditUser = () => {
     prenom: "",
     email: "",
     Telephone: "",
+    Adresse:"",
+    role:""
   });
 
-  const { name, prenom, email, Telephone } = user;
+  const { name, prenom, email, Telephone,Adresse,role } = user;
   const onInputChange = (e) => {
     setUser({
        ...user, 
@@ -36,7 +38,7 @@ const EditUser = () => {
   };
   return (
     <>
-   
+   <Sidebar />
       <div className="user">
      
         <div className="userTitleContainer">
@@ -95,6 +97,28 @@ const EditUser = () => {
                   placeholder="+216 456 7894"
                   className="userUpdateInput"
                   value={Telephone}
+                  onChange={(e) => onInputChange(e)}
+                />
+              </div>
+              <div className="userUpdateLeftItmes">
+                <label>Adresse</label>
+                <input
+                name="Adresse"
+                  type="text"
+                  placeholder="adress"
+                  className="userUpdateInput"
+                  value={Adresse}
+                  onChange={(e) => onInputChange(e)}
+                />
+              </div>
+              <div className="userUpdateLeftItmes">
+                <label>role</label>
+                <input
+                name="role"
+                  type="text"
+                  placeholder="role"
+                  className="userUpdateInput"
+                  value={role}
                   onChange={(e) => onInputChange(e)}
                 />
               </div>

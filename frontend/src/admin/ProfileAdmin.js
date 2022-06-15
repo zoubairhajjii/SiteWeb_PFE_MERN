@@ -7,17 +7,6 @@ const ProfileAdmin = () => {
     <div className="">
       <Sidebar />
       </div>
-     
-        
-        
-    
-    
-     
-      
-      
-      
-
-   
     </>
   );
 };
