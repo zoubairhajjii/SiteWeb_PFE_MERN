@@ -63,15 +63,7 @@ exports.GetUser = async (req, res) => {
     res.status(500).json({ msg: "could not get users", error });
   }
 };
-exports.deleteUser = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const userDeleted = await UserSchema.findByIdAndDelete(id);
-    res.status(200).json({ msg: "user deleted", userDeleted });
-  } catch (error) {
-    res.status(500).json({ msg: "could not delete user", error });
-  }
-};
+
 exports.editUser = async (req, res) => {
   const { id } = req.params;
   try {

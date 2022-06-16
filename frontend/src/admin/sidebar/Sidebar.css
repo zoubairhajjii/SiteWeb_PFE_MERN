@@ -24,7 +24,7 @@
   color: rgb(216, 117, 117);
   margin-bottom: 10px;
 }
-.sidebarListItem {
+.zamba {
   padding: 5px;
   cursor: pointer;
   display: flex;
@@ -35,7 +35,7 @@
   text-decoration: none;
   color: #3379dc;
 }
-.sidebarListItem.active,
+.zamba.active,
 
  
 

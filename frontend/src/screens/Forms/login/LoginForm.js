@@ -70,7 +70,7 @@ export default function LoginForm() {
                                 value={password}
                             />
                             <div className='form__control 'style={{color :"red"}}>
-                                <Link to='/NewServiceAd'>forget password</Link>
+                                <Link to='/forgetpasword'>forget password</Link>
                             </div>
                             <Button
                                 className='formSubmitBtn'

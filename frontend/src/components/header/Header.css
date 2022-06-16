@@ -178,6 +178,27 @@
   border: 1px solid #287bff;
 }
 
+.productSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+.pdsearchBox {
+  position: fixed;
+  display: none;
+  flex-wrap: wrap;
+  top: 70px;
+  right: 20px;
+  width: 300px;
+  border: 1px solid #287bff;
+}
+
 .pdsearchBox.active {
   display: flex;
 }

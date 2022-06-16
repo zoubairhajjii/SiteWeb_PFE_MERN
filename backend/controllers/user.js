@@ -48,3 +48,16 @@ exports.addUser = async (req, res) => {
     res.status(500).send({ msg: "could not add user", error });
   }
 };
+
+exports.GetUserById = async (req, res) => {
+  const {id } = req.params;
+  try {
+    user = await UserSchema.findById(id)
+    res.status(200).json({ msg: "detail user", user }).then((result) =>
+    res.status(200).send(result))
+  } catch (error) {
+    res.status(500).json({ msg: "could not get detail", error });
+  }
+};
+
+

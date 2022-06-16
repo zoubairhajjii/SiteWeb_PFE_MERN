@@ -16,7 +16,7 @@ function Modal({ setOpenModal }) {
     axios
       .post(
         `http://localhost:5000/api/Demande/addDemande/${location.state.id}/${user._id}`,
-        { prix: price , description: description }
+        { price: price , description: description }
       )
       .then((result) => alert("all good"))
       .catch((err) => alert("error is" + err));
@@ -42,7 +42,7 @@ function Modal({ setOpenModal }) {
         x
           </button>
         </div>
-       
+        <div className="rr">
         <div className="inpt">
           <input type="text" placeholder="description"
           onChange={desfunction}/>
@@ -52,6 +52,7 @@ function Modal({ setOpenModal }) {
             onChange={pricefunction}/>
     
           <button onClick={addservice}>Continue</button>
+          </div>
           </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const ConnectDb = require("./config/ConnectDb");
 const AuthRoute = require("./routes/auth");
@@ -8,16 +9,20 @@ const { Server } = require("socket.io");
 const DemandeRoute = require("./routes/demande");
 const FeedbackRoute = require("./routes/Feedbacks");
 const UserRoute = require("./routes/user");
+const passwordRoute = require("./controllers/password");
 const app = express();
+
 app.use(cors());
 
 app.use(express.json());
 ConnectDb();
 app.use("/api/auth", AuthRoute);
+
 app.use("/api/Service", ServiceRoute);
 app.use("/api/Demande", DemandeRoute);
 app.use("/api/FeedBack", FeedbackRoute);
 app.use("/api/user",UserRoute)
+app.use("/api/password",passwordRoute)
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] },

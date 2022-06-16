@@ -15,7 +15,7 @@ const NewServiceAdd = () => {
   const dispatch = useDispatch();
 
   const Navigate = useNavigate();
-  const { loading, error } = useSelector((state) => state.serviceReducer);
+  const { auth, error } = useSelector((state) => state.serviceReducer);
 
   const [data, setData] = useState({
     category: "",
@@ -24,7 +24,7 @@ const NewServiceAdd = () => {
     price:"",
     localisation: "",
   });
-  const categories = ["électricite", "plombier", "cheff", "climatisation"];
+  const categories = ["électricite", "plombier", "chef", "climatisation"];
 
   const onChange = (e) => {
     setData({
@@ -40,9 +40,6 @@ const NewServiceAdd = () => {
 
   return (
     <Fragment>
-     
-        
-     
         <Fragment>
           <MetaData title="Add New Product" />
           <div className="allTypeFormPage">
@@ -91,6 +88,18 @@ const NewServiceAdd = () => {
                     }
                   />
                 </div>
+                
+                <div className="form__control ship">
+                  <PinDropIcon />
+                  <input
+                    type="text"
+                    placeholder="localisation"
+                    name="localisation"
+                    value={data.localisation}
+                    onChange={onChange}
+                  />
+                </div>
+
                 <div className="form__control ship">
                   <AttachMoneyIcon />
                   <input
@@ -100,17 +109,6 @@ const NewServiceAdd = () => {
                     onChange={onChange}
                     name="price"
                     min="1"
-                  />
-                </div>
-
-                <div className="form__control ship">
-                  <PinDropIcon />
-                  <input
-                    type="text"
-                    placeholder="localisation"
-                    name="localisation"
-                    value={data.localisation}
-                    onChange={onChange}
                   />
                 </div>
 

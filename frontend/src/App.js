@@ -11,7 +11,7 @@ import ResetPassword from "./screens/Forms//password/ResetPassword";
 import Hom from "./screens/home/Hom";
 import ActivationEmail from "./screens/Forms/password/ActivationEmail";
 import ProfileAdmin from "./admin/ProfileAdmin";
-import ProfileProfissionell from "./screens/service/pages/ProfileProfissionell";
+import ProfileProfissionell from "./screens/service/ProfileProfissionell/ProfileProfissionell";
 import NewServiceAd from "./screens/service/pages/admin/NewServiceAdd";
 import Card from "./screens/user/card/Card";
 import { ToastContainer } from "react-toastify";
@@ -30,6 +30,7 @@ import UserProfile from "./screens/user/UserProfile";
 import Mydemade from "./screens/user/Mydemade";
 import DemandesPro from "./screens/DemandesPro";
 import AddedServiceAdmin from "./admin/service/AddedServiceAdmin";
+ import EditeProfilePoff from "./screens/service/ProfileProfissionell/EditeProfilePoff"
 function App() {
   return (
     <BrowserRouter>
@@ -50,11 +51,14 @@ function App() {
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/forgetpasword" element={<ForgotdPassword />} />
           <Route path="/reset" element={<ResetPassword />} />
-
+ 
           <Route
             path="/ProfileProfissionell"
             element={<ProfileProfissionell />}
           />
+          <Route
+            path="/EditeProfilePoff"
+            element={<EditeProfilePoff />}/>
           <Route path="/profileadmin" element={<ProfileAdmin />} />
           <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
           <Route path="/listeService" element={<ListeService />} />
@@ -62,7 +66,7 @@ function App() {
 
           <Route path="/users/edit/:id" element={<EditeUser />} />
           <Route path="addedServiceAdmin" element={<AddedServiceAdmin />} />
-
+             
           <Route path="/listuser" element={<ListeUser />} />
           <Route path="/listuser" element={<ListeUser />} />
           <Route path="/userProfile" element={<UserProfile />} />

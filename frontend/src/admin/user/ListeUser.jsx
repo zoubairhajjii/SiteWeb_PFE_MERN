@@ -27,7 +27,7 @@ const ListeUser = () => {
     <Sidebar />
     <div classNameName="cc">
       <div className="py-6 cc container">
-        <h1>Liste Service</h1>
+        <h1>Liste USER</h1>
         <table className="table border shadow">
           <thead className="thead-dark">
             <tr>

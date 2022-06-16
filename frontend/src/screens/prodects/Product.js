@@ -3,6 +3,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {  useLocation, useNavigate } from "react-router-dom";
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 import "./prodect.css";
 function Product() {
@@ -25,9 +26,16 @@ function Product() {
           <div className="card_item">
             <div className="card_inner">
               <img src={el.image} alt="" />
-              <div className="userName">{el.category}</div>
-           
-             
+              <div className="userName">{el.category}
+              
+          
+            <div>
+               {el.DescriptionService}
+               </div>
+               <div/>
+              <MonetizationOnIcon/>
+              price: {el.price}
+               </div><div/>
               <button
                 className="seeMore "
                 onClick={() => {

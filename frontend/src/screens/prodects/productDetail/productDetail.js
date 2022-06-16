@@ -9,11 +9,14 @@ import {
   PhoneAndroid,
   Podcasts,
 } from "@mui/icons-material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import HomeIcon from "@mui/icons-material/Home";
-import PinDropIcon from "@mui/icons-material/PinDrop";
+import PlaceIcon from "@mui/icons-material/Place";
 import Modal from "../../model/Modal";
+import CategoryIcon from "@mui/icons-material/Category";
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import React from "react";
 import "./productDetail.css";
 import { Link } from "react-router-dom";
@@ -58,37 +61,53 @@ const ProductDetail = () => {
       </div>
 
       <div className="asba">
-        <div className="">{prod.category}</div>
+        <div className="coucou">
+          {" "}
+          <CategoryIcon />
+          {prod.category}
+        </div>
+        <div className="coucou">
+          <PlaceIcon />
+          {prod.localisation}
+        </div>
+        <div className="coucou">
+        <MonetizationOnIcon/>
+        {prod.price}
+        </div>
         <div>
-          <div className="coucou" >
-            {prod.userId.name} {prod.userId.prenom}
+          <div className="coucou">
+            {" "}
+            <AccountCircleIcon />
+            {prod.userId.name}
           </div>
+          <AccountCircleIcon />
+          {prod.userId.prenom}
         </div>
         <div className="coucou">
           <HomeIcon />
+
           {prod.userId.Adresse}
         </div>
+
         <div className="coucou">
           <PhoneIcon /> {prod.userId.Telephone}
         </div>
         <div className="coucou">
-          <EmailIcon />
-          {prod.userId.email}
+          <EmailIcon /> {prod.userId.email}
         </div>
-        </div>
-        <div className="App">
-          <button
-            className="openModalBtn"
-            onClick={() => {
-              setModalOpen(true);
-              console.log("clicked");
-            }}
-          >
-            Add demand
-          </button>
+      </div>
+      <div className="App">
+        <button
+          className="openModalBtn"
+          onClick={() => {
+            setModalOpen(true);
+            console.log("clicked");
+          }}
+        >
+          Add demand
+        </button>
 
-          {modalOpen && <Modal setOpenModal={setModalOpen} />}
-       
+        {modalOpen && <Modal setOpenModal={setModalOpen} />}
       </div>
     </div>
   );

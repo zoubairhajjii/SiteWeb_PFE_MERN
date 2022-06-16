@@ -24,7 +24,7 @@ const ListeService = () => {
       {" "}
       <Sidebar />
       <div classNameName="cc">
-        <div className="py-6 cc container">
+        <div className="py-6 cc image.png">
           <h1>Liste Service</h1>
           <table className="table border shadow">
             <thead className="thead-dark">

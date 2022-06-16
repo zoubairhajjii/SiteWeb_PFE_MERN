@@ -24,7 +24,7 @@ function UserProfile()  {
             <Link to="/Mydemade">
               <div className="btnPrimary profileBtn">My Demande</div>
             </Link>
-            <Link to="/me/password/update">
+            <Link to="password/update">
               <div className="btnPrimary profileBtn">Change Password</div>
             </Link>
           </div>

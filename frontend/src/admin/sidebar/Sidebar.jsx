@@ -12,7 +12,7 @@ const Sidebar = () => {
         <div className='sidebarMenu'>
           <h1>Admin</h1>
           <ul className='sidebarList'>
-            <Link to='/' className='sidebarListItem active'>
+            <Link to='/' className='zamba active'>
               <LineStyle className='sidebarIcon' />
               Home
             </Link>
@@ -20,20 +20,20 @@ const Sidebar = () => {
         </div>
         <div className='sidebarMenu'>
       
-          <ul className='sidebarList'>
-            <Link to='/listUser' className='sidebarListItem '>
+          <ul className=''>
+            <Link to='/listUser' className='zamba '>
               <PersonOutline className='sidebarIcon' />
               Users
             </Link>
-            <Link to='/listeService' className='sidebarListItem'>
+            <Link to='/listeService' className='zamba'>
               <Storefront className='sidebarIcon' />
              Services
             </Link>
-            <Link  to='/newUser'className='sidebarListItem'>
+            <Link  to='/newUser'className='zamba'>
               <PersonOutline className='sidebarIcon' />
               AddUSER
             </Link>
-            <Link to='/addedServiceAdmin' className='sidebarListItem'>
+            <Link to='/addedServiceAdmin' className='zamba'>
               <BarChart className='sidebarIcon' />
               Add Service
             </Link>
@@ -43,7 +43,7 @@ const Sidebar = () => {
           <h3>Notification</h3>
           <ul className='sidebarList'>
             
-            <Link  to='/users' className='sidebarListItem'>
+            <Link  to='/users' className='zamba'>
               <DynamicFeed className='sidebarIcon' />
               Feedback
             </Link>

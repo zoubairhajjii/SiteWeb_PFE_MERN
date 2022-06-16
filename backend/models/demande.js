@@ -8,7 +8,7 @@ const DemandeSchema = mongoose.Schema({
     default: "attente",
   },
   description: { type: String, required: true },
-  prix: { type: String },
+  price: { type: String },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

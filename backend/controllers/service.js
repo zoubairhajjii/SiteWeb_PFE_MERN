@@ -32,9 +32,6 @@ exports.getService = async (req, res) => {
 exports.getServiceByProId = async (req, res) => {
   const { userid } = req.params;
   try {
-
-   
-
     await ServiceSchema.find({ userId: userid }).then((result) =>
       res.status(200).send(result)
     );

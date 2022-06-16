@@ -11,7 +11,7 @@ function Categories() {
   const [categories, setCategirues] = useState([
     { name: "électricite", image:  clamatiseur },
     { name: "plombier", image: plonB },
-    { name: "cheff", image: chauffage },
+    { name: "chef", image: chauffage },
     { name: "climatisation", image: clamatiseur }
   ]);
   return (
