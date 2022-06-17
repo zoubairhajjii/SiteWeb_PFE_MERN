@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 export default function App() {
   return (
     <div className="App">
-      {/* Cards */}
+ 
      
       <div class="row">
         <div class="column">
@@ -15,9 +15,7 @@ export default function App() {
 
               </div>
              
-            <img
-           
-            />
+            
            
             
           </div>

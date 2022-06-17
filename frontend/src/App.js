@@ -11,12 +11,12 @@ import ResetPassword from "./screens/Forms//password/ResetPassword";
 import Hom from "./screens/home/Hom";
 import ActivationEmail from "./screens/Forms/password/ActivationEmail";
 import ProfileAdmin from "./admin/ProfileAdmin";
-import ProfileProfissionell from "./screens/service/ProfileProfissionell/ProfileProfissionell";
+
 import NewServiceAd from "./screens/service/pages/admin/NewServiceAdd";
 import Card from "./screens/user/card/Card";
 import { ToastContainer } from "react-toastify";
 import { getUserData } from "./utils/LocalStorage";
-import Categories from "./screens/categories/Categories";
+import Service from "./screens/categories/Service";
 import Product from "./screens/prodects/Product";
 import ProductDetail from "./screens/prodects/productDetail/productDetail";
 import NewServiceAdd from "./screens/service/pages/admin/NewServiceAdd";
@@ -28,10 +28,18 @@ import EditeUser from "./admin/user/eidteuser/EditeUser";
 import ListeService from "./admin/service/ListeService";
 import UserProfile from "./screens/user/UserProfile";
 import Mydemade from "./screens/user/Mydemade";
-import DemandesPro from "./screens/DemandesPro";
+import ProfileProfissionell from "./ProfileProfissionell/ProfileProfissionell"
+import DemandesPro from "./ProfileProfissionell/DemandesPro";
 import AddedServiceAdmin from "./admin/service/AddedServiceAdmin";
- import EditeProfilePoff from "./screens/service/ProfileProfissionell/EditeProfilePoff"
+ import EditeProfilePoff from "./ProfileProfissionell/EditeProfilePoff"
+import { useSelector } from "react-redux";
+import Search from "./components/search/SearchBar";
 function App() {
+  const auth = useSelector(state => state.authReducer)
+  const user = {
+    isConnected: auth.isAuth,
+    
+  }
   return (
     <BrowserRouter>
       <Header />
@@ -39,14 +47,20 @@ function App() {
       <div className="appContainer">
         <Routes>
           <Route path="/" element={<Homee />} />
+       
+          <Route path="/Search" element={<Search />} />
+
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/service" element={<Service/>} />
+          <Route path="/product" element={<Product/>} />
           <Route path="/productDetail" element={<ProductDetail />} />
           <Route path="/newerviceAd" element={<NewServiceAdd />} />
           <Route path="/about" element={<AboutUs />} />
+          
+      
+
 
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/forgetpasword" element={<ForgotdPassword />} />

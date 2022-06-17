@@ -233,3 +233,8 @@
   width: 100%;
   background-color: rgba(255, 172, 17, 0.986);
 }
+.form-control {
+  border-radius: 20px;
+  background-color: rgb(202, 221, 221);
+  max-width: 500px;
+}

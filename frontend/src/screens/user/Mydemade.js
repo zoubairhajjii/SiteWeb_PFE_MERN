@@ -66,11 +66,11 @@ function Mydemade() {
         <div className="card_item">
           <div className="card_inner">
             <div className="userName">
-              {" "}
+       
               <div>
               {demn.description}
               <div/>
-              {demn.prix}
+             price: {demn.price}
               <div>
                 {demn.date}
               </div>

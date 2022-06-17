@@ -10,16 +10,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../search/SearchBar";
-import {notifySuccess} from "../../utils/alerts/Alerts"
-import logout from "../../redux/reducers/authReducer"
-
-
+import { notifySuccess } from "../../utils/alerts/Alerts";
+import logout from "../../redux/reducers/authReducer";
 
 export default function Header() {
   const dispatch = useDispatch();
   const [hamburger, setHamburger] = useState(true);
   const showSidebar = () => setHamburger(!hamburger);
-  const { auth,user } = useSelector((state) => state.authReducer);
+  const { auth, user } = useSelector((state) => state.authReducer);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -44,24 +42,38 @@ export default function Header() {
 
           <Link to="/about">
             <div className="nav__option">AboutUs</div>
+            <Link to="/Service">
+              <div className="nav__option">Service</div>
+            </Link>
           </Link>
 
-          {auth ? <>
-                        <Link to=''>
-                            <div className="nav__option" onClick={handleLogout}>Logout</div>
-                        </Link>
-                    </> :
-                        <>
-                            <Link to='/signup'>
-                                <div className="nav__option">Signup</div>
-                            </Link>
-                            <Link to='/login'>
-                                <div className="nav__option">Login</div>
-                            </Link>
-                        </>
-                    }
-
-
+          {auth ? (
+            <>
+              <Link to="">
+                <div className="nav__option" onClick={handleLogout}>
+                  Logout
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/signup">
+                <div className="nav__option">Signup</div>
+              </Link>
+              <Link to="/login">
+                <div className="nav__option">Login</div>
+              </Link>
+            </>
+          )}
+          <form className="form-inline active-cyan-4">
+            <input
+              className="form-control form-control-sm mr-3 w-75"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+            />
+           
+          </form>
 
           {/* on mobile view */}
           <Link to="/account">
@@ -80,10 +92,7 @@ export default function Header() {
         </div>
 
         {/* on desktop view */}
-        <div className="header__Icons d__flex">
-          <div className="productSearch">
-            <SearchIcon />
-          </div>
+        
           <Link to="/account">
             <div className="header__option userAccount not__for__mobile"></div>
           </Link>
@@ -91,8 +100,7 @@ export default function Header() {
             <MenuIcon />
           </div>
         </div>
-        <SearchBar />
-      </div>
+     
     </AppBar>
   );
 }

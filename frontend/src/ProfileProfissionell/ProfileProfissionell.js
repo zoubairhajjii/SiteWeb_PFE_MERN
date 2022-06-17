@@ -4,8 +4,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { getUserData } from "../../../utils/LocalStorage";
-import NewServiceAdd from "../pages/admin/NewServiceAdd";
+import { getUserData } from "../utils/LocalStorage";
+import NewServiceAdd from "../screens/service/pages/admin/NewServiceAdd";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import "./profi.module.css";
@@ -65,11 +65,15 @@ const ProfileProfissionell = () => {
               <EditIcon className='sidebarIcon' />
               Edite Profile
             </Link>
+            <Link to='/demandesPro' >
+              <EditIcon className='sidebarIcon' />
+              demandesPro
+            </Link>
             <button class="btn btn-danger mr-2" onClick={() => deletProfile(user._id)} > 
             delete Profil
            </button>
             
-            
+          
 
           
             

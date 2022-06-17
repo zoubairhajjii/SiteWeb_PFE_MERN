@@ -91,13 +91,17 @@
     color: #0062cc;
 }
 .row{
+    border: solid rgb(167, 43, 43) 5px;
+    border-radius: 26px;
+    margin: 30px;
     display: flex;
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
-    margin-top: var(--bs-gutter-y);
-    align-content: flex-start;
-    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+.demande{
+
 }

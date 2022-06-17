@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@material/circular-progress": "^14.0.0",
@@ -12,6 +13,7 @@
     "@mui/x-data-grid": "^5.12.0",
     "@mui/x-data-grid-generator": "^5.12.0",
     "@mui/x-data-grid-pro": "^5.12.0",
+    "@react-google-maps/api": "^2.12.0",
     "@stripe/react-stripe-js": "^1.8.1",
     "@stripe/stripe-js": "^1.31.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -32,6 +34,7 @@
     "react-dom": "^18.0.0",
     "react-file-base64": "^1.0.3",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.4.0",
     "react-js-pagination": "^3.0.3",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",

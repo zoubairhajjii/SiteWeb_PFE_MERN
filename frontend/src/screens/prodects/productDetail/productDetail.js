@@ -33,7 +33,7 @@ const ProductDetail = () => {
     axios
       .post(
         `http://localhost:5000/api/Demande/addDemande/${location.state.id}/${user._id}`,
-        { prix: price, description: description }
+        { price: price, description: description }
       )
       .then((result) => alert("all good"))
       .catch((err) => alert("error is" + err));

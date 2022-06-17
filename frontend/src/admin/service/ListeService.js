@@ -21,19 +21,19 @@ const ListeService = () => {
 
   return (
     <>
-      {" "}
+     
       <Sidebar />
-      <div classNameName="cc">
+      <div classNameName="xx">
         <div className="py-6 cc image.png">
           <h1>Liste Service</h1>
-          <table className="table border shadow">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">category</th>
-                <th scope="col">localisation</th>
-                <th scope="col">price</th>
-                <th>Action</th>
+          <table className="table border shadow" style={{padding:"auto"}}>
+            <thead className="thead-dark"  >
+              <tr style={{alignItem:"center",justifyContent:"center"}}>
+                <th  style={{width:"150px"}} scope="col">#</th>
+                <th  style={{width:"150px"}} scope="col">category</th>
+                <th  style={{width:"150px"}} scope="col">localisation</th>
+                <th  style={{width:"150px"}} scope="col">price</th>
+                <th >Action</th>
               </tr>
             </thead>
             <tbody>

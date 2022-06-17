@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./Home.css";
 import MetaData from "../../utils/title/MetaData";
 import {  useDispatch } from "react-redux";
-import Categories from "../categories/Categories";
+import Categories from "../categories/Service";
 import Hom from "./Hom";
 const categories = ["PLOMBIER", "ELECTRICINE", "NAJAR"];
 const Home = () => {
@@ -20,11 +20,11 @@ const Home = () => {
   return (
     <div>
       
-      <div className="cat">
+      <div className="ee">
      
       <Categories/>
       </div>
-      <h1 className="h1">notre service</h1>
+      
       <div className="hom">
       <Hom /> 
      

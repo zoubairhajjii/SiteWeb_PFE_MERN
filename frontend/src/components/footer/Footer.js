@@ -20,11 +20,12 @@ export default function Footer() {
                         <Link to='#'><span>Shipping Guide</span></Link>
                     </div>
                     <div className="col">
-                        <h4>USEFUL LINK</h4>
-                        <Link to='#'><span>Online Store</span></Link>
-                        <Link to='#'><span>Customer Services</span></Link>
-                        <Link to='#'><span>Promotion</span></Link>
-                        <Link to='#'><span>Top Brands</span></Link>
+                        <h4>SERVICEK</h4>
+                       
+                        <Link to='#'><span>électricite</span></Link>
+                        <Link to='#'><span>plombier</span></Link>
+                        <Link to='#'><span>chef</span></Link>
+                        <Link to='#'><span>climatisation</span></Link>
                     </div>
                     <div className="social__Icons">
                         <span><FacebookIcon /></span>

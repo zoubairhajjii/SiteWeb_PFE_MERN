@@ -14,7 +14,7 @@ function UserProfile()  {
             <div className="userProfile__image"></div>
             <h2 className="UserName"></h2>
             <div className="personal__info">
-              <span>Member Since</span>
+              <span>profile </span>
             </div>
             <Link to="update">
               <div className="btnPrimary">Edit Profile</div>

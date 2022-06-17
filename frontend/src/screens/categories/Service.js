@@ -4,7 +4,7 @@ import elect from '../../images/elect.png';
 import plonB from "../../images/plomberie.png"
 import chauffage from "../../images/chauffage.png"
 import clamatiseur from '../../images/climatisation.png'
-import './categories.css';
+import './service.css';
 function Categories() {
   const Navigate = useNavigate();
 
