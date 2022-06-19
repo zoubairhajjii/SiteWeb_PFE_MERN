@@ -7,6 +7,7 @@ const {
   editService,
   getServiceByCatName,
   getProductById,
+  getServiceByCatKey,
 } = require("../controllers/service");
 const { isAuth } = require("../middlewares/isAuth");
 
@@ -19,5 +20,7 @@ ServiceRoute.get("/getProductDetail/:id", getProductById);
 ServiceRoute.get("/services", getService);
 ServiceRoute.delete("/deleteService/:id_user/:id", deleteService);
 ServiceRoute.put("/editService/:id/:id_user", editService);
+ServiceRoute.get("/getKey/:Key", getServiceByCatKey);
+
 
 module.exports = ServiceRoute;

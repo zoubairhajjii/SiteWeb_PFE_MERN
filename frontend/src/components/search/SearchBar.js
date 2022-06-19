@@ -1,37 +1,42 @@
 import React, { Fragment, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
+import Search from "@mui/icons-material/Search";
+import axios from "axios";
 
 const SearchBar = () => {
   const Navigate = useNavigate();
-  const [keyword, setKeyword] = useState("");
+  const [service, setService] = useState([]);
   const searchSubmitHandler = (e) => {
     e.preventDefault();
-    if (keyword.trim()) {
-      Navigate(`/${keyword}`);
+  };
+  const searchHanler = async (e) => {
+    let key = e.target.value;
+    if (key) {
+      let resultat = await fetch(
+        `http://localhost:5000/api/Service/getKey/${key}`
+      );
+      resultat = await resultat.json();
+      console.log(resultat);
+      if (resultat) {
+        setService(resultat);
+      }
     } else {
-      Navigate("/");
     }
   };
 
   return (
     <Fragment>
-      <form
-        className="form-inline active-cyan-4"
-        onSubmit={searchSubmitHandler}
-      >
-        <input
-          className="form-control form-control-sm mr-3 w-75"
-          type="text"
-          placeholder="Search"
-          aria-label="Search"
-          onChange={(e) => setKeyword(e.target.value)}
-        />
-        <span className="searchButton" />
-        <SearchIcon />
-     
-      </form>
+      <input
+        className="form-control form-control-sm mr-3 w-75"
+        type="text"
+        name="Search"
+        placeholder="Search"
+        aria-label="Search"
+        onChange={searchHanler}
+      />
+      <span className="searchButton" />
     </Fragment>
   );
 };

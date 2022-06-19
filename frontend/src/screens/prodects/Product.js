@@ -6,6 +6,8 @@ import {  useLocation, useNavigate } from "react-router-dom";
   import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 import "./prodect.css";
+import Search from "@mui/icons-material/Search";
+import SearchBar from "../../components/search/SearchBar";
 function Product() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,6 +22,8 @@ function Product() {
   }, []);
 
   return (
+    <>
+   
     <div className="container">
       {prods.map((el) => {
         return (
@@ -50,6 +54,8 @@ function Product() {
         );
       })}
     </div>
+   
+    </>
   );
 }
 export default Product;

@@ -49,6 +49,20 @@ exports.getServiceByCatName = async (req, res) => {
     res.status(500).send({ msg: "could not get list of service", error });
   }
 };
+exports.getServiceByCatKey = async (req, res) => {
+  const { Key } = req.params;
+ 
+    let resultat= await ServiceSchema.find({ 
+      "$or":[
+        {price:{$regex:Key}},
+        {category:{$regex:Key}},
+        {DescriptionService:{$regex:Key}},
+        {localisation:{$regex:Key}}
+ 
+      ]
+    });
+    res.send(resultat)
+  }
 
 exports.getProductById = async (req, res) => {
   const { id } = req.params;
