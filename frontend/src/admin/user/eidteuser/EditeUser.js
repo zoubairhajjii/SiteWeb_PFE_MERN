@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory, useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../../sidebar/Sidebar";
-import "./edite.css"
+import "./edite.css";
 const EditUser = () => {
   let Navigate = useNavigate();
   const { id } = useParams();
@@ -11,15 +11,16 @@ const EditUser = () => {
     prenom: "",
     email: "",
     Telephone: "",
-    Adresse:"",
-    role:""
+    Adresse: "",
+    role: "",
   });
 
-  const { name, prenom, email, Telephone,Adresse,role } = user;
+  const { name, prenom, email, Telephone, Adresse, role } = user;
   const onInputChange = (e) => {
     setUser({
-       ...user, 
-      [e.target.name]: e.target.value });
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   useEffect(() => {
@@ -38,9 +39,8 @@ const EditUser = () => {
   };
   return (
     <>
-   <Sidebar />
+      <Sidebar />
       <div className="user">
-     
         <div className="userTitleContainer">
           <h1>Edit User</h1>
           <Link to="/newUser">
@@ -59,7 +59,7 @@ const EditUser = () => {
               <div className="userUpdateLeftItmes">
                 <label>name</label>
                 <input
-                name="name"
+                  name="name"
                   type="text"
                   placeholder="name"
                   className="userUpdateInput"
@@ -81,7 +81,7 @@ const EditUser = () => {
               <div className="userUpdateLeftItmes">
                 <label>Email</label>
                 <input
-                name="email"
+                  name="email"
                   type="text"
                   placeholder="email99@gmail.com "
                   className="userUpdateInput"
@@ -92,7 +92,7 @@ const EditUser = () => {
               <div className="userUpdateLeftItmes">
                 <label>Telephone</label>
                 <input
-                name="Telephone"
+                  name="Telephone"
                   type="text"
                   placeholder="+216 456 7894"
                   className="userUpdateInput"
@@ -103,7 +103,7 @@ const EditUser = () => {
               <div className="userUpdateLeftItmes">
                 <label>Adresse</label>
                 <input
-                name="Adresse"
+                  name="Adresse"
                   type="text"
                   placeholder="adress"
                   className="userUpdateInput"
@@ -114,7 +114,7 @@ const EditUser = () => {
               <div className="userUpdateLeftItmes">
                 <label>role</label>
                 <input
-                name="role"
+                  name="role"
                   type="text"
                   placeholder="role"
                   className="userUpdateInput"

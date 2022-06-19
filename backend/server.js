@@ -18,7 +18,7 @@ app.use(express.json());
 ConnectDb();
 app.use("/api/auth", AuthRoute);
 
-app.use("/api/Service", ServiceRoute);
+app.use("/api/Service",ServiceRoute);
 app.use("/api/Demande", DemandeRoute);
 app.use("/api/FeedBack", FeedbackRoute);
 app.use("/api/user",UserRoute)

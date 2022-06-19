@@ -50,18 +50,18 @@ const ListeUser = () => {
               <td>{user.Telephone}</td>
               <td>{user.role}</td>
               <td>
-                <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                <Link className="btn btn-primary mr-2" to={`/users/${user.id}`}>
                   View
                 </Link>
                 <Link
-                  class="btn btn-success"
+                  className="btn btn-success"
                   to={`/users/edit/${user._id}`}
                 >
                   Edit
                 </Link>
                 <td
                 
-                  class="btn btn-danger mr-2"
+                  className="btn btn-danger mr-2"
                   onClick={() => deleteUser(user._id)}
                 >
                   Delete

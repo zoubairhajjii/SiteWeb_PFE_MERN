@@ -28,64 +28,50 @@ import EditeUser from "./admin/user/eidteuser/EditeUser";
 import ListeService from "./admin/service/ListeService";
 import UserProfile from "./screens/user/UserProfile";
 import Mydemade from "./screens/user/Mydemade";
-import ProfileProfissionell from "./ProfileProfissionell/ProfileProfissionell"
+import ProfileProfissionell from "./ProfileProfissionell/ProfileProfissionell";
 import DemandesPro from "./ProfileProfissionell/DemandesPro";
 import AddedServiceAdmin from "./admin/service/AddedServiceAdmin";
- import EditeProfilePoff from "./ProfileProfissionell/EditeProfilePoff"
+import EditeProfilePoff from "./ProfileProfissionell/EditeProfilePoff";
 import { useSelector } from "react-redux";
+import ListeServicePof from "./ProfileProfissionell/ListeServicePof";
 import Search from "./components/search/SearchBar";
 function App() {
-  const auth = useSelector(state => state.authReducer)
+  const auth = useSelector((state) => state.authReducer);
   const user = {
     isConnected: auth.isAuth,
-    
-  }
+  };
   return (
     <BrowserRouter>
       <Header />
-
       <div className="appContainer">
         <Routes>
           <Route path="/" element={<Homee />} />
-       
           <Route path="/Search" element={<Search />} />
-
-
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/service" element={<Service/>} />
-          <Route path="/product" element={<Product/>} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/product" element={<Product />} />
           <Route path="/productDetail" element={<ProductDetail />} />
           <Route path="/newerviceAd" element={<NewServiceAdd />} />
           <Route path="/about" element={<AboutUs />} />
-          
-      
-
-
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/forgetpasword" element={<ForgotdPassword />} />
           <Route path="/reset" element={<ResetPassword />} />
- 
           <Route
             path="/ProfileProfissionell"
-            element={<ProfileProfissionell />}
-          />
-          <Route
-            path="/EditeProfilePoff"
-            element={<EditeProfilePoff />}/>
+            element={<ProfileProfissionell />}/>
+          <Route path="/EditeProfilePoff/:id" element={<EditeProfilePoff />} />
           <Route path="/profileadmin" element={<ProfileAdmin />} />
           <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
           <Route path="/listeService" element={<ListeService />} />
           <Route path="/demandesPro" element={<DemandesPro />} />
-
+          <Route path="/ListeServicePof" element={<ListeServicePof />} />
           <Route path="/users/edit/:id" element={<EditeUser />} />
           <Route path="addedServiceAdmin" element={<AddedServiceAdmin />} />
-             
           <Route path="/listuser" element={<ListeUser />} />
           <Route path="/listuser" element={<ListeUser />} />
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/Mydemade" element={<Mydemade />} />
-
           <Route path="/newUser" element={<NewUser />} />
         </Routes>
       </div>
@@ -94,5 +80,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;

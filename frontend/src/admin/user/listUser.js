@@ -29,8 +29,8 @@ const User = () => {
         <li className="list-group-item">name: {user.name}</li>
         <li className="list-group-item">user name: {user.username}</li>
         <li className="list-group-item">email: {user.email}</li>
-        <li className="list-group-item">phone: {user.phone}</li>
-        <li className="list-group-item">website: {user.website}</li>
+        <li className="list-group-item">phone: {user.Telephone}</li>
+        <li className="list-group-item">website: {user.role}</li>
       </ul>
     </div>
   );

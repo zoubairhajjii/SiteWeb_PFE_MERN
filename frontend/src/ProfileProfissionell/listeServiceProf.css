@@ -1,0 +1,17 @@
+.mama{
+    display: flex;
+
+
+}
+.maaa{
+    margin-top: 300px;
+    display: flex;
+    border-radius: 30px;
+   padding: auto;
+    flex-wrap: wrap;
+ 
+    margin: 25px 50px 75px 100px;      
+    max-width: 100%; 
+   
+    
+}

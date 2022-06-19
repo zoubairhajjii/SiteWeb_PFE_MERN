@@ -62,10 +62,10 @@ exports.getProductById = async (req, res) => {
   }
 };
 exports.deleteService = async (req, res) => {
-  const { id } = req.params;
+  const { id_user, id} = req.params;
   try {
-    const admin = await UserSchema.findById(req.user._id);
-    if (admin.role === "Admin") {
+    const Professionnel = await UserSchema.findById(id_user);
+    if (Professionnel .role === "Professionnel") {
       const ServiceDeleted = await ServiceSchema.findByIdAndDelete(id);
       res.status(200).send({ msg: "service has been deleted", ServiceDeleted });
     } else {

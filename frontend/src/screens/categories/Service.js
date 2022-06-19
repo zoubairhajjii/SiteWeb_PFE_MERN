@@ -5,6 +5,7 @@ import plonB from "../../images/plomberie.png"
 import chauffage from "../../images/chauffage.png"
 import clamatiseur from '../../images/climatisation.png'
 import './service.css';
+import SearchBar from "../../components/search/SearchBar";
 function Categories() {
   const Navigate = useNavigate();
 
@@ -16,6 +17,7 @@ function Categories() {
   ]);
   return (
     <div className="aa">
+     
       {categories.map((element) => (
         <div
          className="bb"
@@ -29,7 +31,9 @@ function Categories() {
           
         </div>
       ))}
+     
     </div>
+     
   );
 }
 

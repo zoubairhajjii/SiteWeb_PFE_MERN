@@ -11,13 +11,13 @@ const {
 const { isAuth } = require("../middlewares/isAuth");
 
 const ServiceRoute = express.Router();
-
+getServiceByProId
 ServiceRoute.post("/addService/:id_user", isAuth, addService);
 ServiceRoute.get("/getProDemandes/:userid",getServiceByProId)
 ServiceRoute.get("/getByServiceName/:name", getServiceByCatName);
 ServiceRoute.get("/getProductDetail/:id", getProductById);
 ServiceRoute.get("/services", getService);
-ServiceRoute.delete("/deleteService/:id", isAuth, deleteService);
+ServiceRoute.delete("/deleteService/:id_user/:id", deleteService);
 ServiceRoute.put("/editService/:id/:id_user", editService);
 
 module.exports = ServiceRoute;
