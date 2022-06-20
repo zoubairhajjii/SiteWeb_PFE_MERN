@@ -28,7 +28,7 @@ function Hom() {
           <div className="card-body">
             <h5 className="card-title">Garantie assuré</h5>
             <p className="card-text">
-              Darydar vous offre une garantie sur les interventions et un
+             Job Finder vous offre une garantie sur les interventions et un
               service de suivi à la hauteur de vos attentes.
             </p>
           </div>
@@ -48,7 +48,7 @@ function Hom() {
           <div className="card-body">
             <h5 className="card-title">Service de qualité</h5>
             <p className="card-text">
-              Nos techniciens sont sélectionnés et testés par DaryDar pour vous
+              Nos techniciens sont sélectionnés et testés par Job Finder pour vous
               offrir la meilleure prestation.
             </p>
           </div>

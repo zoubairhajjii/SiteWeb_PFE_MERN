@@ -79,7 +79,7 @@ exports.deleteService = async (req, res) => {
   const { id_user, id} = req.params;
   try {
     const Professionnel = await UserSchema.findById(id_user);
-    if (Professionnel .role === "Professionnel") {
+    if (Professionnel .role === "Admin") {
       const ServiceDeleted = await ServiceSchema.findByIdAndDelete(id);
       res.status(200).send({ msg: "service has been deleted", ServiceDeleted });
     } else {

@@ -3,10 +3,16 @@ import axios from "axios";
 import Sidebar from "../sidebar/Sidebar";
 import "./listeservice.css";
 import { Link } from "react-router-dom";
+import { getUserData } from "../../utils/LocalStorage";
+import { notifySuccess } from "../../utils/alerts/Alerts";
 const ListeService = () => {
   const [service, setService] = useState([]);
+  const [user, setUser] = useState([]);
+
+
 
   useEffect(() => {
+    getUserData().then((res) => setUser(res));
     loadService();
   }, []);
 
@@ -15,8 +21,12 @@ const ListeService = () => {
       "http://localhost:5000/api/Service/services"
     );
     setService(result.data.ListOfService);
-  
-    console.log(result.data);
+  };
+  const deletService = async (id) => {
+    await axios
+      .delete(`http://localhost:5000/api/Service/deleteService/${user._id}/${id}/`)
+      .then(() => notifySuccess("Delete successful"),
+      loadService());
   };
 
   return (
@@ -54,8 +64,8 @@ const ListeService = () => {
                 </Link>
                 <td
                 
-                  class="btn btn-danger mr-2"
-                 
+                  className="btn btn-danger mr-2"
+                  onClick={() => deletService(service._id)}
                 >
                   Delete
                 

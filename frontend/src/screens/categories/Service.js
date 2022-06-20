@@ -16,6 +16,7 @@ function Categories() {
     { name: "climatisation", image: clamatiseur }
   ]);
   return (
+    
     <div className="aa">
      
       {categories.map((element) => (

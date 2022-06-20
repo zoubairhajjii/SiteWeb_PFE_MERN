@@ -35,6 +35,9 @@ import EditeProfilePoff from "./ProfileProfissionell/EditeProfilePoff";
 import { useSelector } from "react-redux";
 import ListeServicePof from "./ProfileProfissionell/ListeServicePof";
 import Search from "./components/search/SearchBar";
+import AdminRouter from "./components/private/AdminRouter";
+import PrivateRouter from "./components/private/PrivateRouter";
+import ProfessionnelRoute from "./components/private/ProfessionnelRoute";
 function App() {
   const auth = useSelector((state) => state.authReducer);
   const user = {
@@ -49,21 +52,68 @@ function App() {
           <Route path="/Search" element={<Search />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/product" element={<Product />} />
+          <Route
+            path="/service"
+            element={
+              <PrivateRouter user={user}>
+                <Service />
+              </PrivateRouter>
+            }
+          />
+          <Route
+            path="/product"
+            element={
+              <PrivateRouter user={user}>
+                <Product />
+              </PrivateRouter>
+            }
+          />
           <Route path="/productDetail" element={<ProductDetail />} />
-          <Route path="/newerviceAd" element={<NewServiceAdd />} />
-          <Route path="/about" element={<AboutUs />} />
+          <Route
+            path="/newerviceAd"
+            element={
+              <ProfessionnelRoute user={user}>
+                <NewServiceAdd />
+              </ProfessionnelRoute>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PrivateRouter user={user}>
+                <AboutUs />
+              </PrivateRouter>
+            }
+          />
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/forgetpasword" element={<ForgotdPassword />} />
           <Route path="/reset" element={<ResetPassword />} />
           <Route
             path="/ProfileProfissionell"
-            element={<ProfileProfissionell />}/>
+            element={
+              <ProfessionnelRoute user={user}>
+                <ProfileProfissionell />
+              </ProfessionnelRoute>
+            }
+          />
           <Route path="/EditeProfilePoff/:id" element={<EditeProfilePoff />} />
-          <Route path="/profileadmin" element={<ProfileAdmin />} />
+          <Route
+            path="/profileadmin"
+            element={
+              <AdminRouter user={user}>
+                <ProfileAdmin />
+              </AdminRouter>
+            }
+          />
           <Route path="/EditeSerivce/:id" element={<EditeSerivce />} />
-          <Route path="/listeService" element={<ListeService />} />
+          <Route
+            path="/listeService"
+            element={
+              <AdminRouter user={user}>
+                <ListeService />
+              </AdminRouter>
+            }
+          />
           <Route path="/demandesPro" element={<DemandesPro />} />
           <Route path="/ListeServicePof" element={<ListeServicePof />} />
           <Route path="/users/edit/:id" element={<EditeUser />} />

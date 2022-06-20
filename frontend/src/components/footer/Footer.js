@@ -20,7 +20,7 @@ export default function Footer() {
                         <Link to='#'><span>Shipping Guide</span></Link>
                     </div>
                     <div className="col">
-                        <h4>SERVICEK</h4>
+                        <h4>SERVICES</h4>
                        
                         <Link to='#'><span>électricite</span></Link>
                         <Link to='#'><span>plombier</span></Link>

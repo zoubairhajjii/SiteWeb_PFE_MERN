@@ -118,7 +118,7 @@ const ProfileProfissionell = () => {
           
         
         </form>
-        <ListeServicePof/>
+      
       </div>
     </>
   );

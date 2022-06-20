@@ -35,7 +35,7 @@ function DemandesPro() {
       {demandes.map((el) => (
         <div>
         
-         <h1> {el.service.category}</h1>
+        
             {" "}
             <div className="lkol">
             {el.demandes.map((dem) => (
