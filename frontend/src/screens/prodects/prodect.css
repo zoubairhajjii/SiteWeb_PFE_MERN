@@ -11,6 +11,18 @@
 	justify-content: center;
 	/*flex-wrap: wrap;*/
 }
+.containerProducts{
+	/*padding: 20px 10px 10px 10px;*/
+	/*width: 70%;
+	margin: auto;*/
+	padding-top: 90px;
+	flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	/*justify-content: space-between;*/
+	justify-content: center;
+	/*flex-wrap: wrap;*/	
+}
 
 .card_item {
 	padding: 15px 30px;

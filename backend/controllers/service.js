@@ -50,18 +50,7 @@ exports.getServiceByCatName = async (req, res) => {
   }
 };
 exports.getServiceByCatKey = async (req, res) => {
-  const { Key } = req.params;
  
-    let resultat= await ServiceSchema.find({ 
-      "$or":[
-        {price:{$regex:Key}},
-        {category:{$regex:Key}},
-        {DescriptionService:{$regex:Key}},
-        {localisation:{$regex:Key}}
- 
-      ]
-    });
-    res.send(resultat)
   }
 
 exports.getProductById = async (req, res) => {
@@ -79,7 +68,7 @@ exports.deleteService = async (req, res) => {
   const { id_user, id} = req.params;
   try {
     const Professionnel = await UserSchema.findById(id_user);
-    if (Professionnel .role === "Admin") {
+    if (Professionnel .role === "Admin"||Professionnel .role === "Professionnel") {
       const ServiceDeleted = await ServiceSchema.findByIdAndDelete(id);
       res.status(200).send({ msg: "service has been deleted", ServiceDeleted });
     } else {
@@ -95,7 +84,7 @@ exports.editService = async (req, res) => {
   const { id,id_user } = req.params;
   try {
     const Admin = await UserSchema.findById(id_user);
-    if (Admin.role === "Admin") {
+    if (Admin.role === "Admin"||Admin.role==="Professionnel") {
       const ServiceEdited = await ServiceSchema.findByIdAndUpdate(id, {
         $set: { ...req.body },
       });

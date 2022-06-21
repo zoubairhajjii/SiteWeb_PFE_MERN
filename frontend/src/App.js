@@ -38,10 +38,11 @@ import Search from "./components/search/SearchBar";
 import AdminRouter from "./components/private/AdminRouter";
 import PrivateRouter from "./components/private/PrivateRouter";
 import ProfessionnelRoute from "./components/private/ProfessionnelRoute";
+import EditeUserProfile from "./screens/user/EditeUserProfile"
 function App() {
-  const auth = useSelector((state) => state.authReducer);
+  const authReducer = useSelector((state) => state.authReducer);
   const user = {
-    isConnected: auth.isAuth,
+    isConnected: authReducer.isAuth,
   };
   return (
     <BrowserRouter>
@@ -52,14 +53,7 @@ function App() {
           <Route path="/Search" element={<Search />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/service"
-            element={
-              <PrivateRouter user={user}>
-                <Service />
-              </PrivateRouter>
-            }
-          />
+          <Route path="/service" element={<Service />} />
           <Route
             path="/product"
             element={
@@ -89,7 +83,7 @@ function App() {
           <Route path="/forgetpasword" element={<ForgotdPassword />} />
           <Route path="/reset" element={<ResetPassword />} />
           <Route
-            path="/ProfileProfissionell"
+            path="/account"
             element={
               <ProfessionnelRoute user={user}>
                 <ProfileProfissionell />
@@ -123,6 +117,8 @@ function App() {
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/Mydemade" element={<Mydemade />} />
           <Route path="/newUser" element={<NewUser />} />
+          <Route path="/EditeUserProfile/:id" element={<EditeUserProfile />} />
+
         </Routes>
       </div>
       <ToastContainer />

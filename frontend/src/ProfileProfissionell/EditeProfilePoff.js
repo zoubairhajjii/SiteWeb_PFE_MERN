@@ -24,8 +24,8 @@ function EditeProfilePoff() {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/api/user/edituser/${id}`, user);
-    Navigate("/login  ");
+    await axios.put(`http://localhost:5000/api/user/edituser/${id}`, user).then(()=>Navigate('/account'));
+  
   };
 
 

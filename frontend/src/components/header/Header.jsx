@@ -12,13 +12,21 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../search/SearchBar";
 import { notifySuccess } from "../../utils/alerts/Alerts";
 import logout from "../../redux/reducers/authReducer";
+import { getUserData } from "../../utils/LocalStorage";
 
 export default function Header() {
+ 
+
   const dispatch = useDispatch();
   const [hamburger, setHamburger] = useState(true);
   const showSidebar = () => setHamburger(!hamburger);
-  const { auth, user } = useSelector((state) => state.authReducer);
-
+  const {isAuth,user} = useSelector((state) => state.authReducer);
+const [userr,setUserr]=useState(null)
+  useEffect(() => {
+   getUserData().then((result)=>{setUserr(result);console.log(result)})
+  }, []);
+ 
+  
   const handleLogout = () => {
     dispatch(logout());
     notifySuccess("logout successfully.");
@@ -31,9 +39,8 @@ export default function Header() {
         </Link>
         <div
           className={
-            hamburger
-              ? "nav__list d__flex"
-              : " nav__list d__flex hamburger__open"
+          
+             " nav__list d__flex hamburger__open"
           }
         >
           <Link to="/">
@@ -47,25 +54,30 @@ export default function Header() {
             </Link>
           </Link>
 
-          {auth ? (
+          {isAuth? (
             <>
-              <Link to="">
-                <div className="nav__option" onClick={handleLogout}>
-                  Logout
-                </div>
-              </Link>
-            </>
+            <Link to="">
+              <div className="nav__option" onClick={handleLogout}>
+                Logout
+              </div>
+            </Link>
+          </>
+            
           ) : (
             <>
-              <Link to="/signup">
-                <div className="nav__option">Signup</div>
-              </Link>
-              <Link to="/login">
-                <div className="nav__option">Login</div>
-              </Link>
+           
+           
+            <Link to="/signup">
+              <div className="nav__option">Signup</div>
+            </Link>
+            <Link to="/login">
+              <div className="nav__option">Login</div>
+            </Link>
             </>
+            
           )}
-         <SearchBar/>
+         
+        
 
           {/* on mobile view */}
           <Link to="/account">
@@ -85,9 +97,10 @@ export default function Header() {
 
         {/* on desktop view */}
         
-          <Link to="/account">
+          {userr&&<Link to={userr.role=="Professionnel"?"/account":userr.role=="Admin"?"/profileadmin":"/userProfile"}>
             <div className="header__option userAccount not__for__mobile"></div>
-          </Link>
+          </Link>}
+          
           <div className="header__option hamburger" onClick={showSidebar}>
             <MenuIcon />
           </div>

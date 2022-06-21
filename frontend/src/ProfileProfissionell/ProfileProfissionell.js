@@ -2,7 +2,7 @@ import { LineStyle, Storefront } from "@mui/icons-material";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { getUserData } from "../utils/LocalStorage";
 import NewServiceAdd from "../screens/service/pages/admin/NewServiceAdd";
@@ -13,6 +13,7 @@ import { notifySuccess } from "../utils/alerts/Alerts";
 import ListeServicePof from "./ListeServicePof";
 const ProfileProfissionell = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({});
   useEffect(() => {
@@ -22,8 +23,7 @@ const ProfileProfissionell = () => {
   const deletProfile = async (id) => {
     await axios
       .delete(`http://localhost:5000/api/user/deleteuser/${id}`)
-      .then(() => notifySuccess("Delete successful"));
-  };
+      .then(()=>navigate("/"))  };
   return (
     <>
       <div className="container emp-profile">
@@ -51,6 +51,10 @@ const ProfileProfissionell = () => {
               <Link to={`/EditeProfilePoff/${user._id}`}>
                 <EditIcon className="sidebarIcon" />
                 Edite Profile
+              </Link>
+              <Link to="/ListeServicePof">
+                <EditIcon className="sidebarIcon" />
+                ListeService
               </Link>
               <Link to="/demandesPro">
                 <EditIcon className="sidebarIcon" />

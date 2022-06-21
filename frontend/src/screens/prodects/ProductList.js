@@ -1,5 +1,5 @@
 
-/*import React from 'react'
+import React from 'react'
 
 function ProductList(props) {
     console.log(props,"zoubaie jjjjjj") 
@@ -20,4 +20,4 @@ function ProductList(props) {
   )
 }
 
-export default ProductList*/
+export default ProductList

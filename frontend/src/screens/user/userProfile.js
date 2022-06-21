@@ -2,7 +2,7 @@ import { LineStyle, Storefront } from "@mui/icons-material";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import EditIcon from "@mui/icons-material/Edit";
@@ -12,8 +12,9 @@ import { getUserData } from "../../utils/LocalStorage";
 import { notifySuccess } from "../../utils/alerts/Alerts";
 const ProfileProfissionell = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const [user, setUser] = useState({});
+    const [user, setUser] = useState({});
   const [status, setState] = useState({});
 
   useEffect(() => {
@@ -25,9 +26,11 @@ const ProfileProfissionell = () => {
   const deletProfile = async (id) => {
     await axios
       .delete(`http://localhost:5000/api/user/deleteuser/${id}`)
-      .then(() => notifySuccess( "Delete successful" ))
-      Navigate("/");
+     
+      .then(()=>navigate("/"))
+     
   };
+  
 
   return (
     <>
@@ -35,10 +38,7 @@ const ProfileProfissionell = () => {
         <form method="post">
           <div className="">
             <div className="zz">
-              <div className="profile-img">
-                <img src="" alt="" />
-                <div className="file btn btn-lg btn-primary"></div>
-              </div>
+             
             </div>
             <div className="">
               <div className="p">
@@ -49,7 +49,7 @@ const ProfileProfissionell = () => {
           </div>
           <div className="row">
             <div className="">
-              <Link to="/EditeProfilePoff">
+            <Link to={`/EditeUserProfile/${user._id}`}>
                 <EditIcon className="sidebarIcon" />
                 Edite Profile
               </Link>

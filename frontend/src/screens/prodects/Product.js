@@ -11,6 +11,22 @@ function Product() {
   const location = useLocation();
   const navigate = useNavigate();
   const [prods, setProds] = useState([]);
+
+  function orderbypriceDesc(){
+    const sortByName = [...prods];
+    sortByName.sort((a, b) => {
+      return  a.price - b.price;
+    })
+    setProds(sortByName)
+   
+  }
+  function orderbypriceAsc(){
+    const sortByName = [...prods];
+    sortByName.sort((a, b) => {
+      return  b.price - a.price;
+    })
+    setProds(sortByName)
+   }
   useEffect(() => {
     axios
       .get(
@@ -48,10 +64,10 @@ function Product() {
   })
 */
   return (
-    <>
-      <div className="container">
-          
-     
+    <><div style={{paddingTop:"90px"}}>
+     <button onClick={()=>orderbypriceDesc()}> asc</button>
+     <button onClick={()=>orderbypriceAsc()}> desc</button>
+      <div className="containerProducts">
          {prods.map((el) => {
           return (
             <div className="card_item">
@@ -76,9 +92,9 @@ function Product() {
               </div>
             </div>
           );
-        })} 
+        })}
       </div>
-    </>
+      </div></>
   );
 }
 export default Product;

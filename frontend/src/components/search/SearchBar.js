@@ -7,35 +7,26 @@ import axios from "axios";
 
 const SearchBar = () => {
   const Navigate = useNavigate();
-  const [service, setService] = useState([]);
-  const searchSubmitHandler = (e) => {
-    e.preventDefault();
-  };
-  const searchHanler = async (e) => {
-    let key = e.target.value;
-    if (key) {
-      let resultat = await fetch(
-        `http://localhost:5000/api/Service/getKey/${key}`
-      );
-      resultat = await resultat.json();
-      console.log(resultat);
-      if (resultat) {
-        setService(resultat);
-      }
-    } else {
-    }
-  };
+  const [filter, setFilter] = useState("");
 
+	const filterHandler = (e) => {
+		const name = e.target.value;
+    //console.log(name,"name")
+		setFilter(name);
+	//	filteration(name);
+	};
+  
   return (
     <Fragment>
       <input
         className="form-control form-control-sm mr-3 w-75"
         type="text"
         name="Search"
-        placeholder="Search"
-        aria-label="Search"
-        onChange={searchHanler}
-      />
+        placeholder="filter by name"
+				value={filter}
+				onChange={filterHandler}
+			/>
+      
       <span className="searchButton" />
     </Fragment>
   );

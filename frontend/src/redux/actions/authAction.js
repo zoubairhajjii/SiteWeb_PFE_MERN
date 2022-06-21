@@ -13,13 +13,14 @@ export const LoginAction = (user, Navigate)=>async (dispatch) =>{
                 notifySuccess(res.data.msg,{position:toast.POSITION.TOP_CENTER})
         }
        else if (res.data.found.role ==="Professionnel"){
-              Navigate("/ProfileProfissionell"); 
+              Navigate("/account"); 
               notifySuccess(res.data.msg,{position:toast.POSITION.TOP_CENTER})
         }
         else {
            
-               Navigate("/homee")};
+               Navigate("/userProfile")};
     } catch (error) {
+        alert("an error occured ")
         dispatch({type :ERRORS ,payload:error.response.data.errors})        
     }
 }

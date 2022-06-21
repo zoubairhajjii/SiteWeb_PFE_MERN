@@ -19,6 +19,35 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const[passwordError,setPasswordError]=useState(null);
+const[emailError,setEmailError]=useState(null);
+  function validateinput(){
+    var emailvalid= false;
+    var passwordvalid = false;
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+      setEmailError("please enter a valid email.")
+      emailvalid=false;
+  }
+  else{
+    setEmailError(null)
+    emailvalid=true;
+  }
+  if(password.length<8){
+    setPasswordError("password must be longer than 8 characters")
+passwordvalid=false;
+  }else{
+    setPasswordError(null)
+    passwordvalid=true;
+
+  }
+  if(emailvalid&&passwordvalid){
+    dispatch(LoginAction({ email, password }, Navigate));
+    return true;
+
+  }
+  else{return false}
+
+  }
   return (
     <Container className="container">
       <Paper className="PaperClass">
@@ -48,6 +77,7 @@ export default function LoginForm() {
                 }}
                 value={email}
               />
+              {emailError&&<p>Please check email format</p>}
               <TextField
                 margin="normal"
                 required
@@ -63,6 +93,8 @@ export default function LoginForm() {
                 }}
                 value={password}
               />
+                            {passwordError&&<p>password must be longer than 8 characters</p>}
+
               <div className="form__control " style={{ color: "red" }}>
                 <Link to="/forgetpasword">forget password</Link>
               </div>
@@ -73,7 +105,8 @@ export default function LoginForm() {
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault(e);
-                  dispatch(LoginAction({ email, password }, Navigate));
+                  validateinput();
+
                 }}
               >
                 Sign In
